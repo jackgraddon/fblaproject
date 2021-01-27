@@ -1,10 +1,10 @@
 /* Imported CSS */
-@import "./css/root.css";
-@import "./css/animationControllers.css";
-@import "./css/menutoggle.css";
+@import ".//root.css";
+@import ".//animationControllers.css";
+@import ".//menutoggle.css";
 
 /* Fonts */
-@import "./css/fonts/fonts.css";
+@import ".//fonts/fonts.css";
 
 /* Color Theme Control */
 @media (prefers-color-scheme: dark) {
@@ -190,7 +190,7 @@ a {
 }
 
 div#bgLanding {
-  background-image: url(images/assets/frontpage/background.png);
+  background-image: url(../images/assets/frontpage/background.png);
   background-size: cover;
   display: block;
   position: relative;
@@ -199,7 +199,7 @@ div#bgLanding {
   z-index: -3;
 }
 div#bgLegals {
-  background-image: url(legal/images/background.png);
+  background-image: url(../legal/images/background.png);
   background-size: cover;
   display: block;
   position: relative;
