@@ -1,0 +1,25 @@
+{
+  "name": "fblaproject",
+  "version": "1.0.0",
+  "description": "A project for FBLA 2020-2021",
+  "main": "index.html",
+  "dependencies": {
+    "rellax": "^1.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackgraddon/fblaproject.git"
+  },
+  "keywords": [
+    "fbla"
+  ],
+  "author": "Jack Graddon",
+  "bugs": {
+    "url": "https://github.com/jackgraddon/fblaproject/issues"
+  },
+  "homepage": "https://github.com/jackgraddon/fblaproject#readme"
+}

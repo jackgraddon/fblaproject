@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Jack Graddon | Concact</title>
+	<link href="../../images/assets/logo.ico" rel="icon" />
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+	<!-- Personal CSS -->
+	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<!-- Fontawesome -->
+	<script src="https://kit.fontawesome.com/32cc714e85.js" crossorigin="anonymous"></script>
+	<!-- Fontawesome -->
+	<script src="https://kit.fontawesome.com/32cc714e85.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav class="glass navbar navbar-expand-sm sticky-top bg-light shadow">
+		<a href="../" class="navbar-brand" style="font-size: 20pt">JG</a>
+		<div class="navbar-toggler" id="webapp_cover" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<div id="menu_button">
+				<input type="checkbox" id="menu_checkbox" />
+				<label for="menu_checkbox" id="menu_label">
+					<div id="menu_text_bar"></div>
+				</label>
+			</div>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="../../">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../portfolio/">Portfolio</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../../about/">About Me</a>
+				</li>
+				<div class="nav-item dropdown">
+					<li class="nav-link dropdown-toggle" type="button" id="socials" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						Social
+					</li>
+					<div class="dropdown-menu" aria-labelledby="socials">
+						<a class="dropdown-item" href="../redirect/#igm">Instagram</a>
+						<a class="dropdown-item" href="../redirect/#twt">Twitter</a>
+						<a class="dropdown-item" href="../redirect/#fcb">Facebook</a>
+					</div>
+				</div>
+			</ul>
+		</div>
+	</nav>
+
+	<main role="main" class="container" id="main" style="margin-left: auto; margin-right: auto; height: 76vh">
+		<section>
+			<div class="jumbotron mt-5">
+				<h1>Concact</h1>
+				<p class="lead">Jack Graddon</p>
+			</div>
+		</section>
+		<section>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+					id="progressBarExample" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+				</div>
+			</div>
+			<p class="text-muted" id="progresssBarText">Loading...</p>
+			<script type="application/javascript">
+				let value = 0;
+				function progressBar() {
+					while (value <= 100) {
+						value = value + 0.05;
+						$("#progressBarExample").width(`${value}%`);
+					}
+					setTimeout(() => {
+						alert(
+							"Message sent! Site will now redirect you to the homepage."
+						);
+						window.location.href = "../../";
+					}, 2000);
+				}
+				progressBar();
+			</script>
+		</section>
+
+		<nav class="glass navbar navbar-light bg-light" style="bottom: 0px; width: 100%; position: absolute">
+			<div style="width: 100%">
+				<p class="lead">Jack Graddon</p>
+				<p>
+					<a href="../redirect/#igm"><i class="fa fa-instagram" aria-hidden="true"></i></a> <a
+						href="../redirect/#twt"><i class="fa fa-twitter" aria-hidden="true"></i></a> <a
+						href="../redirect/#fcb"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				</p>
+			</div>
+			<div class="row"></div>
+			<div class="col-md">
+				<h6 class="mb-0">Copyright</h6>
+				<p class="text-sm">Website &copy;2021 Jackson Graddon</p>
+			</div>
+			<div class="col-md">
+				<h6 class="mb-0">Other Legals</h6>
+				<p class="text-sm">
+					View other legal statements, such as photo credits.
+					<a href="../../legal/">Learn more.</a>
+				</p>
+			</div>
+			<div class="col-md">
+				<h6 class="mb-0">Safari Users</h6>
+				<p class="text-sm">
+					This website is best viewed on Microsoft Edge 2020 or Google Chrome.
+				</p>
+			</div>
+		</nav>
+		<!-- <script src="../script/.js"></script>
+    <script type="text/javascript">
+        var = new('.');
+    </script> -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+</body>
+
+</html>
