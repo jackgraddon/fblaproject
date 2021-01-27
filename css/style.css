@@ -4,6 +4,7 @@
 @import "menutoggle.css";
 
 /* Fonts */
+@import "./fonts/fonts.css";
 
 /* Color Theme Control */
 @media (prefers-color-scheme: dark) {
