@@ -1,10 +1,10 @@
 /* Imported CSS */
-@import ".//root.css";
-@import ".//animationControllers.css";
-@import ".//menutoggle.css";
+@import "./root.css";
+@import "./animationControllers.css";
+@import "./menutoggle.css";
 
 /* Fonts */
-@import ".//fonts/fonts.css";
+@import "./fonts/fonts.css";
 
 /* Color Theme Control */
 @media (prefers-color-scheme: dark) {
