@@ -18,4 +18,4 @@ Please be respectful of my requests.
 
 ---
 # A Small 'About Me' for Jackson Graddon
-Jackson Graddon is a 16 year old high school student at Lynden High School who is interested in Graphic and Website Design.
+Jackson Graddon is a 17 year old high school student at Lynden High School who is interested in Graphic and Website Design.
