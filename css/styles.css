@@ -33,6 +33,10 @@ body {
   color: var(--color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 /* Text */
 h1,
@@ -50,6 +54,10 @@ h6 {
 p,
 a {
   transition: 150ms;
+  text-decoration: none;
+}
+p {
+  font-family: "Above";
 }
 .textgroup {
   width: 100%;
@@ -57,7 +65,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px red solid;
 }
 
 /* Navbar */
@@ -71,6 +78,8 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  z-index: 5;
+  box-shadow: 0px 5px 5px 0px var(--neutral);
 }
 .nav * {
   margin: 0 auto;
@@ -80,6 +89,30 @@ a {
 }
 .nav *:hover {
   color: var(--color);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color);
+  height: fit-content;
+  padding: 3rem;
+  color: var(--neutral);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer .links {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.footer .links * {
+  margin: auto;
+  color: var(--neutral);
 }
 
 /* Fullpage Div */
@@ -102,11 +135,10 @@ img.framed {
 }
 .imagegroup {
   width: 100%;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; */
-  border: 1px red solid;
+  height: 50%;
+}
+.imagegroup * {
+  transform: rotateX(-15deg) rotateY(10deg) skew(5deg) rotate(-5deg);
 }
 
 /* Made with AI Icon */
@@ -114,8 +146,5 @@ img.framed {
 .madewai {
   width: 55px;
   height: auto;
-}
-.madewai * {
-  padding: 0;
-  margin: 0;
+  margin: 10px;
 }
