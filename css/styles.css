@@ -51,10 +51,18 @@ p,
 a {
   transition: 150ms;
 }
+.textgroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px red solid;
+}
 
 /* Navbar */
 .nav {
-  position: static;
+  position: sticky;
   top: 0;
   width: 100vw;
   height: auto;
@@ -72,4 +80,42 @@ a {
 }
 .nav *:hover {
   color: var(--color);
+}
+
+/* Fullpage Div */
+div.fullpage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Images */
+img {
+  width: 25vw;
+  height: 25vw;
+}
+img.framed {
+  border: 0.7rem rgb(245, 245, 245) solid;
+}
+.imagegroup {
+  width: 100%;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; */
+  border: 1px red solid;
+}
+
+/* Made with AI Icon */
+
+.madewai {
+  width: 55px;
+  height: auto;
+}
+.madewai * {
+  padding: 0;
+  margin: 0;
 }
