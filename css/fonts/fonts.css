@@ -1,9 +1,0 @@
-@font-face {
-  font-family: "Nouvelle Vague";
-  src: url("./Nouvelle-Vague.otf") format("opentype");
-  src: url("./Nouvelle-Vague.ttf") format("truetype"),
-    url("./Nouvelle-Vague.woff2") format("woff2"),
-    url("./Nouvelle-Vague.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}

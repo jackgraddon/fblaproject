@@ -1,12 +1,8 @@
 {
   "name": "fblaproject",
-  "version": "1.0.0",
-  "description": "A project for FBLA 2020-2021",
+  "version": "2.0.0",
+  "description": "A project for FBLA 2021-2022",
   "main": "index.html",
-  "dependencies": {
-    "rellax": "^1.12.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +11,9 @@
     "url": "git+https://github.com/jackgraddon/fblaproject.git"
   },
   "keywords": [
-    "fbla"
+    "fbla",
+    "website design",
+    "design"
   ],
   "author": "Jack Graddon",
   "bugs": {
