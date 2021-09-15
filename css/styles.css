@@ -73,6 +73,7 @@ p {
   top: 0;
   width: 100vw;
   height: auto;
+  padding: 0rem 5rem;
   background-color: var(--neutral);
   display: flex;
   flex-direction: row;
