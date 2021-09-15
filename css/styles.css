@@ -76,11 +76,21 @@ p {
   padding: 0rem 5rem;
   background-color: var(--neutral);
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   z-index: 5;
   box-shadow: 0px 5px 5px 0px var(--neutral);
+}
+.nav#mobile {
+  flex-direction: column;
+}
+.nav#mobile #homelink {
+  margin: auto;
+  width: fit-content;
+}
+.nav#mobile div {
+  display: flex;
+  flex-direction: row;
 }
 .nav * {
   margin: 0 auto;
