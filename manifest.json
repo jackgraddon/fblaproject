@@ -1,0 +1,19 @@
+{
+  "short_name": "Generated",
+  "name": "Generated | AI Generated Prints",
+  "start_url": "../",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./images/assets/logo/generated.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "description": "Generated sells AI Generated Prints and Posters.",
+  "background_color": "#efd6ac",
+  "theme_color": "#efd6ac",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr"
+}
