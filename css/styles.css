@@ -171,12 +171,19 @@ img.framed {
   .imagegroup {
     width: 100%;
     height: 50%;
-    border: red 1px solid;
+    /* border: red 1px solid; */
+    transition: 100ms ease-in-out;
   }
   .imagegroup * {
     transform: rotateX(-15deg) rotateY(10deg) skew(5deg) rotate(-5deg);
     position: absolute;
     display: inline;
+    transition: 100ms ease-in-out;
+  }
+  .imagegroup *:hover {
+    transform: rotateX(0deg) rotateY(0deg) skew(0deg) rotate(0deg) scale(1.1)
+      translate(1.5rem, -1rem);
+    z-index: 4 !important;
   }
   #imageback {
     z-index: 1;
@@ -192,6 +199,11 @@ img.framed {
     z-index: 3;
     margin-left: 17rem;
     margin-top: -2rem;
+  }
+}
+@media screen and (max-width: 920px) {
+  .imagegroup {
+    transform: translateX(-2rem);
   }
 }
 
