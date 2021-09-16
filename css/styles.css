@@ -66,6 +66,15 @@ p {
   justify-content: center;
   align-items: center;
 }
+.textgroup p {
+  text-align: center;
+  width: 65%;
+}
+@media screen and (max-width: 760px) {
+  .textgroup p {
+    width: 75%;
+  }
+}
 
 /* Navbar */
 .nav {
@@ -130,14 +139,24 @@ p {
 /* Fullpage Div */
 div.fullpage {
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+div.fullpage video#generationBG {
+  position: relative;
+  width: 100vw;
+  z-index: -10;
+}
+div.fullpage * {
+  background-color: var(--neutral);
 }
 @media screen and (max-width: 760px) {
   div.fullpage {
+    margin-top: 3rem;
     flex-direction: column;
     height: fit-content;
   }
@@ -153,6 +172,9 @@ img.framed {
 }
 
 @media screen and (max-width: 760px) {
+  img.framed {
+    border: 0.4rem rgb(245, 245, 245) solid !important;
+  }
   .imagegroup {
     width: 100%;
     height: fit-content;
