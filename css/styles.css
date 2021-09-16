@@ -171,7 +171,6 @@ img.framed {
   .imagegroup {
     width: 100%;
     height: 50%;
-    /* border: red 1px solid; */
     transition: 100ms ease-in-out;
   }
   .imagegroup * {
