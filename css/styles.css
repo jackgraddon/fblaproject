@@ -83,6 +83,7 @@ p {
 }
 .nav#mobile {
   flex-direction: column;
+  padding: 0rem;
 }
 .nav#mobile #homelink {
   margin: auto;
@@ -186,23 +187,38 @@ img.framed {
   }
   #imageback {
     z-index: 1;
-    margin-left: 9rem;
+    margin-left: 10rem;
     margin-top: 2rem;
   }
   #imagemid {
     z-index: 2;
-    margin-left: 13rem;
+    margin-left: 14rem;
     margin-top: 0rem;
   }
   #imagefront {
     z-index: 3;
-    margin-left: 17rem;
+    margin-left: 18rem;
     margin-top: -2rem;
   }
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 920px) and (min-width: 760px) {
   .imagegroup {
-    transform: translateX(-2rem);
+    transform: translateX(-5rem);
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+  .imagegroup {
+    transform: translateX(5rem);
+  }
+}
+@media screen and (min-width: 1600px) and (max-width: 2100px) {
+  .imagegroup {
+    transform: translateX(8rem);
+  }
+}
+@media screen and (min-width: 2100px) {
+  .imagegroup {
+    transform: translateX(11rem);
   }
 }
 
