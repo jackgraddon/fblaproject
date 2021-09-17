@@ -70,6 +70,11 @@ p {
   text-align: center;
   width: 65%;
 }
+.textgroup.bgvid {
+  color: var(--neutral);
+  max-width: fit-content;
+  margin: auto;
+}
 @media screen and (max-width: 760px) {
   .textgroup p {
     width: 75%;
@@ -139,21 +144,26 @@ p {
 /* Fullpage Div */
 div.fullpage {
   width: 100vw;
-  height: 85vh;
+  height: 90vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
-div.fullpage video#generationBG {
-  position: relative;
+div.fullpage .videocontainer {
+  position: absolute;
   width: 100vw;
-  z-index: -10;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -9 !important;
 }
-div.fullpage * {
-  background-color: var(--neutral);
+.videocontainer #generationBG {
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+  z-index: -10 !important;
 }
+
 @media screen and (max-width: 760px) {
   div.fullpage {
     margin-top: 3rem;
