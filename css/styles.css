@@ -2,23 +2,20 @@
   :root {
     --neutral: #efd6ac;
     --color: #c44900;
-    --black: #04151f;
-    --red: #c44900;
-    --tan: #efd6ac;
-    --green: #183a37;
-    --purple: #432534;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --neutral: #183a37;
     --color: #efd6ac;
-    --black: #04151f;
-    --red: #c44900;
-    --tan: #efd6ac;
-    --green: #183a37;
-    --purple: #432534;
   }
+}
+:root {
+  --black: #04151f;
+  --red: #c44900;
+  --tan: #efd6ac;
+  --green: #183a37;
+  --purple: #432534;
 }
 
 @font-face {
@@ -63,7 +60,7 @@ h6 {
 }
 p,
 a {
-  transition: 150ms;
+  transition: 200ms ease;
   text-decoration: none;
 }
 p {
@@ -72,11 +69,19 @@ p {
 a.emaillink {
   text-decoration: underline;
   color: var(--color);
-  font-weight: bold;
-}
-a.emaillink:hover {
-  text-decoration: none;
   font-weight: normal;
+}
+@media (prefers-color-scheme: light) {
+  a.emaillink:hover {
+    text-decoration: none;
+    color: var(--purple);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  a.emaillink:hover {
+    text-decoration: none;
+    color: var(--red);
+  }
 }
 .textgroup {
   width: 100%;
@@ -96,6 +101,11 @@ a.emaillink:hover {
   padding: 1rem;
   background-color: var(--purple);
 }
+
+.textgroup form {
+  width: 65%;
+}
+
 @media (prefers-color-scheme: dark) {
   .textgroup.bgvid {
     background-color: var(--neutral);
@@ -107,9 +117,41 @@ a.emaillink:hover {
   width: auto;
 }
 @media screen and (max-width: 760px) {
-  .textgroup p {
-    width: 75%;
+  .textgroup {
+    width: 95%;
+    margin: 1rem;
   }
+  .textgroup p {
+    text-align: center;
+    width: 100%;
+  }
+  .textgroup form {
+    width: 100%;
+  }
+}
+
+/* Buttons */
+.btn {
+  border-radius: 0;
+  font-family: AweberBlack;
+  font-size: 1.3rem;
+  padding: 0.2rem 1rem 0rem 1rem;
+  background-color: var(--neutral);
+  border-width: 5px;
+}
+.btn-primary {
+  color: var(--color);
+  border-color: var(--color);
+}
+.btn-primary:hover {
+  color: var(--neutral);
+  background-color: var(--color);
+  border-color: var(--color);
+}
+.btn-primary:active {
+  color: var(--color);
+  background-color: var(--neutral);
+  border-color: var(--neutral);
 }
 
 /* Navbar */
@@ -128,7 +170,10 @@ a.emaillink:hover {
 }
 .nav#mobile {
   flex-direction: column;
-  padding: 0rem;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  /* overflow: hidden; */
 }
 .nav#mobile #homelink {
   margin: auto;
@@ -137,10 +182,19 @@ a.emaillink:hover {
 .nav#mobile div {
   display: flex;
   flex-direction: row;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
 }
 .nav * {
-  margin: 0 auto;
   padding: 5px;
+  margin: auto 0.5rem;
+  text-decoration: none;
+  color: var(--color);
+  transition: 150ms;
+}
+.nav#mobile * {
+  padding: 5px 0px;
   margin: auto 0.5rem;
   text-decoration: none;
   color: var(--color);
@@ -179,8 +233,8 @@ a.emaillink:hover {
       var(--color) 50%,
       var(--neutral) 50%,
       var(--neutral) 60%,
-      var(--color) 60%,
-      var(--color) 110%
+      var(--red) 60%,
+      var(--red) 110%
     );
     background-size: 300%;
     -webkit-text-fill-color: transparent;
@@ -188,9 +242,9 @@ a.emaillink:hover {
     -webkit-background-clip: text;
     transition: 500ms ease;
   }
-  .nav .pageLink.active:hover * {
+  .nav .pageLink.active:hover {
     background-position: 100%;
-    border-bottom: 5px var(--color) solid !important;
+    border-bottom: 5px var(--red) solid !important;
   }
 }
 .nav .pageLink:hover * {
@@ -309,6 +363,11 @@ img.framed {
     transition: 100ms ease-in-out;
     z-index: 0;
   }
+  .imagegroup.safari * {
+    transform: rotateX(0deg) rotateY(0deg) skew(0deg) rotate(0deg);
+    -webkit-transform: rotateX(0) rotateY(0) skew(0) rotate(0) !important;
+    box-shadow: none !important;
+  }
   .imagegroup *:hover {
     transform: rotateX(0deg) rotateY(0deg) skew(0deg) rotate(0deg)
       translate(1.5rem, -1rem);
@@ -317,10 +376,11 @@ img.framed {
     z-index: 10 !important;
     box-shadow: 0px 5rem 5rem 0px rgba(0, 0, 0, 0.3) !important;
   }
-  .imagegroup.nohover *:hover {
-    transform: rotateX(-15deg) rotateY(10deg) skew(5deg) rotate(-5deg) !important;
-    -webkit-transform: rotateX(-15deg) rotateY(10deg) skew(5deg) rotate(-5deg) !important;
+  .imagegroup.safari *:hover {
+    transform: rotateX(0deg) rotateY(0deg) skew(0deg) rotate(0deg) scale(1.05);
+    -webkit-transform: rotateX(0) rotateY(0) skew(0) rotate(0) scale(1.05) !important;
     box-shadow: none !important;
+    box-shadow: 0px 5rem 5rem 0px rgba(0, 0, 0, 0.3) !important;
   }
   #imageback {
     z-index: 1;
@@ -372,4 +432,72 @@ img.framed {
 }
 .madewai #Rectangle {
   fill: var(--color) !important;
+}
+
+/* Forms */
+form {
+  font-family: Above;
+}
+
+@media (prefers-color-scheme: light) {
+  .form-input::placeholder {
+    color: rgba(200, 200, 200, 0.7);
+    transition: 500ms ease;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .form-input::placeholder {
+    color: rgba(50, 50, 50, 0.7);
+    transition: 500ms ease;
+  }
+}
+.form-input:focus {
+  /* background-color: var(--neutral); */
+  color: var(--neutral);
+}
+.form-input {
+  background: linear-gradient(
+    60deg,
+    var(--color),
+    var(--color) 50%,
+    var(--neutral) 50%,
+    var(--neutral) 60%,
+    var(--purple) 60%,
+    var(--purple) 110%
+  );
+  background-size: 300%;
+  transition: 500ms ease;
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  color: var(--neutral);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  .form-input {
+    background: linear-gradient(
+      60deg,
+      var(--color),
+      var(--color) 50%,
+      var(--neutral) 50%,
+      var(--neutral) 60%,
+      var(--red) 60%,
+      var(--red) 110%
+    );
+    background-size: 300%;
+    transition: 500ms ease;
+  }
+  .nav .pageLink.active:hover {
+    background-position: 100%;
+    border-bottom: 5px var(--red) solid !important;
+  }
+}
+.form-input:focus {
+  color: var(--tan);
+  background-position: 100%;
+}
+.form-input:focus::placeholder {
+  color: transparent !important;
 }

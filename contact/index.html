@@ -42,16 +42,16 @@
             <h1>//Generated</h1>
         </a>
         <div class="d-flex flex-row">
-            <a href="../about/" id="aboutlink">
+            <a href="../about/" id="aboutlink" class="pageLink">
                 <h5>About</h5>
             </a>
-            <a id="contactlink" class="active">
+            <a id="contactlink" class="active" class="pageLink">
                 <h5>Contact</h5>
             </a>
-            <a href="../socials/" id="socialslink">
+            <a href="../socials/" id="socialslink" class="pageLink">
                 <h5>Socials</h5>
             </a>
-            <a href="../shop/" id="shoplink">
+            <a href="../shop/" id="shoplink" class="pageLink">
                 <h5>Shop</h5>
             </a>
         </div>
@@ -81,10 +81,32 @@
     <div class="fullpage">
         <div class="textgroup">
             <h1>WANT tO CoNTact US?</h1>
-            <p>You can reach us by email at <a href="mailto:generated@jackgraddon.page"
+            <p>Fill out the form below, or reach us by email at <a href="mailto:generated@jackgraddon.page"
                     class="emaillink">generated@jackgraddon.page</a>.
             </p>
-            <h3>If you want to reach us another way</h3>
+            <!-- Contact Form -->
+            <form id="contact" accept-charset="utf-8" action="https://formspree.io/f/xleazldw" method="post">
+                <fieldset id="contact-inputs">
+                    <div class="mb-3">
+                        <label for="full-name">Full Name</label>
+                        <input class="form-input" type="text" name="name" id="full-name"
+                            placeholder="What do they call you?">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email-address">Email Address</label>
+                        <input class="form-input" type="email" name="_replyto" id="email-address"
+                            placeholder="How do we reach you?">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message">Message</label>
+                        <textarea class="form-input" rows="5" name="message" id="message"
+                            placeholder="Hello! I am contacting you in regards to your car's extended waranty..."
+                            required=""></textarea>
+                        <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                    </div>
+                </fieldset>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
         </div>
     </div>
 
