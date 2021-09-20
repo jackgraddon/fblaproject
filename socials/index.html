@@ -20,63 +20,29 @@
 </head>
 
 <body>
-    <div class="nav" id="normal">
-        <a href="../about/" id="aboutlink" class="pageLink">
-            <h5>About</h5>
-        </a>
-        <a href="../contact/" id="contactlink" class="pageLink">
-            <h5>Contact</h5>
-        </a>
-        <a href="../" id="homelink">
-            <h1>//Generated</h1>
-        </a>
-        <a id="socialslink" class="pageLink active">
-            <h5>Socials</h5>
-        </a>
-        <a href="../shop/" id="shoplink" class="pageLink">
-            <h5>Shop</h5>
-        </a>
-    </div>
-    <div class="nav" id="mobile" style="display: none;">
-        <a href="../" id="homelink">
+    <div class="nav">
+        <a href="../" id="homelinkM">
             <h1>//Generated</h1>
         </a>
         <div class="d-flex flex-row">
-            <a href="../about/" id="aboutlink">
+            <a href="../about/" id="aboutlink" class="pageLink">
                 <h5>About</h5>
             </a>
-            <a href="../contact/" id="contactlink">
+            <a href="../contact/" id="contactlink" class="pageLink">
                 <h5>Contact</h5>
             </a>
-            <a id="socialslink" class="active">
+            <a href="../" id="homelink">
+                <h1>//Generated</h1>
+            </a>
+            <a href="../socials/" id="socialslink" class="pageLink active">
                 <h5>Socials</h5>
             </a>
-            <a href="../shop/" id="shoplink">
+            <a href="../shop/" id="shoplink" class="pageLink">
                 <h5>Shop</h5>
             </a>
         </div>
     </div>
-    <!-- Fix nav for mobile -->
-    <script>
-        window.onload = function () {
-            if (window.innerWidth < 760) {
-                document.querySelector('.nav#mobile').style.display = 'flex';
-                document.querySelector('.nav#normal').style.display = 'none';
-            } else if (window.innerWidth >= 760) {
-                document.querySelector('.nav#mobile').style.display = 'none';
-                document.querySelector('.nav#normal').style.display = 'flex';
-            }
-        };
-        window.onresize = function () {
-            if (window.innerWidth < 760) {
-                document.querySelector('.nav#mobile').style.display = 'flex';
-                document.querySelector('.nav#normal').style.display = 'none';
-            } else if (window.innerWidth >= 760) {
-                document.querySelector('.nav#mobile').style.display = 'none';
-                document.querySelector('.nav#normal').style.display = 'flex';
-            }
-        };
-    </script>
+
     <div class="fullpage">
         <div class="imagegroup">
             <img src="../images/ai/forest.png" class="framed shadow-sm" alt="AI Generated Image" id="imageback">
