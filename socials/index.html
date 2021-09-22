@@ -21,6 +21,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- Personal CSS -->
     <link href="../css/styles.css" rel="stylesheet">
 </head>
@@ -50,10 +52,62 @@
     </div>
 
     <div class="fullpage">
-        <div class="instagramembed">
-            <a href="https://www.instagram.com/p/CT4sH_OFDZh/">Recent post</a>
+        <div id="iContainer" class="textgroup" onclick="openPlatform('instagram');">
+            <i class="bi bi-instagram" style="font-size: xx-large"></i>
+            <div id="iContent" class="content" style="opacity: 0;">
+                <h1>Hello</h1>
+            </div>
+        </div>
+        <div id="tContainer" class="textgroup" onclick="openPlatform('twitter');">
+            <i class="bi bi-twitter" style="font-size: xx-large"></i>
+            <div id="tContent" class="content" style="opacity: 0;">
+                <h1>Hello</h1>
+            </div>
         </div>
     </div>
+
+    <!-- Page JS -->
+    <script>
+        let opened;
+        let iContainer = document.getElementById('iContainer');
+        let tContainer = document.getElementById('tContainer');
+        let iContent = document.getElementById('iContent');
+        let tContent = document.getElementById('tContent');
+        function openPlatform(platform) {
+            let windowWidth = window.innerWidth;
+            switch (platform) {
+                case 'instagram':
+                    gsap.to(iContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
+                    gsap.to(tContainer, 1.5, { width: '0', ease: "power2.inOut" });
+                    gsap.to(tContainer, 1.5, { opacity: 0, ease: "power2.inOut" });
+                    gsap.to(tContainer, 1.5, { display: 'none', ease: "power2.inOut" });
+                    gsap.to(iContent, 1.5, { opacity: 1, ease: "power2.inOut" });
+                    break;
+                case 'twitter':
+                    gsap.to(tContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
+                    gsap.to(iContainer, 1.5, { width: '0', ease: "power2.inOut" });
+                    gsap.to(iContainer, 1.5, { opacity: 0, ease: "power2.inOut" });
+                    gsap.to(iContainer, 1.5, { display: 'none', ease: "power2.inOut" });
+                    gsap.to(tContent, 1.5, { opacity: 1, ease: "power2.inOut" });
+                    break;
+                // Hey you! Learn more at this website https://greensock.com/get-started/
+            }
+            opened = true;
+        }
+        window.addEventListener("keydown", function () {
+            let windowWidth = window.innerWidth;
+            if (event.keyCode === 27 && opened) {
+                gsap.to(iContainer, 0, { display: 'flex', ease: "power2.inOut" });
+                gsap.to(tContainer, 0, { display: 'flex', ease: "power2.inOut" });
+                gsap.to(iContainer, 1.5, { opacity: 1, ease: "power2.inOut" });
+                gsap.to(tContainer, 1.5, { opacity: 1, ease: "power2.inOut" });
+                gsap.to(iContainer, 1.5, { width: innerWidth / 2, ease: "power2.inOut" });
+                gsap.to(tContainer, 1.5, { width: innerWidth / 2, ease: "power2.inOut" });
+                gsap.to(iContent, 1.5, { opacity: 0, ease: "power2.inOut" });
+                gsap.to(tContent, 1.5, { opacity: 0, ease: "power2.inOut" });
+            }
+        });
+    </script>
 
     <div class="footer">
         <h1>//Generated</h1>
@@ -77,15 +131,19 @@
     <script>
         // Disable Right Click
         document.addEventListener('contextmenu', event => event.preventDefault());
-        // Set playback rate for background video and play video
-        document.getElementById('generationBG').playbackRate = "0.25";
-        document.getElementById('generationBG').play();
-
     </script>
     <!-- Bootstrap JS Bundle (bootstrap.js + popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+
+
 </body>
 
 </html>
