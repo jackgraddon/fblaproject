@@ -11,6 +11,12 @@
     --color: #efd6ac;
   }
 }
+@media print {
+  :root {
+    --neutral: #ffffff;
+    --color: #efd6ac;
+  }
+}
 :root {
   --black: #04151f;
   --red: #c44900;
