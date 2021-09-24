@@ -55,20 +55,21 @@
         <div id="iContainer" class="textgroup" onclick="openPlatform('instagram');" style="height: 100%;">
             <i class="bi bi-instagram" style="font-size: xx-large" id="biInstagram"></i>
             <div id="iContent" class="content" style="opacity: 0; height: 0px;">
-                <div id="curator-feed-instagram-only-layout" style="width: 75%; height: 70%; margin: auto;">
-                    <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
+                <div id="curator-feed-instagram-only-layout" style="height: 70%; margin: auto;">
                 </div>
             </div>
         </div>
         <div id="tContainer" class="textgroup" onclick="openPlatform('twitter');" style="height: 100%;">
             <i class="bi bi-twitter" style="font-size: xx-large" id="biTwitter"></i>
             <div id="tContent" class="content" style="opacity: 0; height: 0px;">
-                <div id="curator-feed-default-feed-layout" style="width: 75%; height: 70%; margin: auto;">
-                    <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
+                <div id="curator-feed-default-feed-layout" style="height: 70%; margin: auto;">
                 </div>
             </div>
         </div>
+
     </div>
+
+    <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
 
     <!-- Page JS -->
     <script>
@@ -81,20 +82,16 @@
             let windowWidth = window.innerWidth;
             switch (platform) {
                 case 'instagram':
-                    gsap.to(iContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                    gsap.to(tContainer, 1.5, { width: '0', ease: "power2.inOut" });
-                    gsap.to(tContainer, 1.5, { opacity: 0, ease: "power2.inOut" });
-                    gsap.to(tContainer, 1.5, { display: 'none', ease: "power2.inOut" });
+                    gsap.to(iContainer, 1.5, { width: windowWidth, backgroundColor: "#F77737", ease: "power2.inOut" });
+                    gsap.to(tContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
                     iContent.style.display = "block";
                     gsap.to('#biInstagram', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
                     gsap.from(iContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
                     gsap.to(iContent, 1.5, { delay: 1.5, opacity: 1, height: 'auto', ease: "power2.inOut" });
                     break;
                 case 'twitter':
-                    gsap.to(tContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                    gsap.to(iContainer, 1.5, { width: '0', ease: "power2.inOut" });
-                    gsap.to(iContainer, 1.5, { opacity: 0, ease: "power2.inOut" });
-                    gsap.to(iContainer, 1.5, { display: 'none', ease: "power2.inOut" });
+                    gsap.to(tContainer, 1.5, { width: windowWidth, backgroundColor: "#1DA1F2", ease: "power2.inOut" });
+                    gsap.to(iContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
                     iContent.style.display = "block";
                     gsap.to('#biTwitter', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
                     gsap.from(tContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
@@ -107,16 +104,10 @@
             let windowWidth = window.innerWidth;
             if (event.keyCode === 27 && opened) {
                 window.scrollTo(0, 0);
-                gsap.to(iContainer, 0, { delay: 1.5, display: 'flex', ease: "power2.inOut" });
-                gsap.to(tContainer, 0, { delay: 1.5, display: 'flex', ease: "power2.inOut" });
-                gsap.to(iContainer, 1.5, { delay: 1.5, opacity: 1, ease: "power2.inOut" });
-                gsap.to(tContainer, 1.5, { delay: 1.5, opacity: 1, ease: "power2.inOut" });
-                gsap.to(iContainer, 1.5, { delay: 1.5, width: innerWidth / 2, ease: "power2.inOut" });
-                gsap.to(tContainer, 1.5, { delay: 1.5, width: innerWidth / 2, ease: "power2.inOut" });
-                gsap.to(iContent, 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
-                gsap.to(tContent, 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
-                gsap.to('#biInstagram', 1.5, { opacity: '1', ease: "power2.inOut" });
-                gsap.to('#biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
+                gsap.to("#iContent, #tContent", 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
+                gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
+                // gsap.to('#biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
+                gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, width: innerWidth / 2, backgroundColor: "#F7773700", ease: "power2.inOut" });
                 opened = false;
             }
         });
@@ -144,7 +135,7 @@
     <script>
         // Onload effects
         window.onload = function () {
-            gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.2, overflowY: 'hidden', ease: "power2.out" }, { y: 0, opacity: 1 });
+            gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
             window.scrollTo(0, 0);
         };
         // Disable Right Click
