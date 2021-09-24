@@ -27,7 +27,7 @@
     <link href="./css/styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="opacity: 0;">
     <div class="nav">
         <a href="./" id="homelinkM">
             <h1>//Generated</h1>
@@ -116,7 +116,7 @@
     <script>
         // Onload effects
         window.onload = function () {
-            gsap.from('body', 1.3, { y: 25, opacity: 0, delay: 0.2, overflowY: 'hidden', ease: "power2.out" });
+            gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.2, overflowY: 'hidden', ease: "power2.out" }, { y: 0, opacity: 1 });
             window.scrollTo(0, 0);
         };
         // Scroll Triggers
