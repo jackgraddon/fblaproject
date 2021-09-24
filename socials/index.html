@@ -25,6 +25,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- Personal CSS -->
     <link href="../css/styles.css" rel="stylesheet">
+    <!-- Page CSS -->
+    <style>
+        @media screen and (max-width: 760px) and (pointer: coarse) {
+            body {
+                background-color: black;
+            }
+        }
+    </style>
 </head>
 
 <body style="opacity: 0;">
@@ -83,7 +91,6 @@
             switch (platform) {
                 case 'instagram':
                     gsap.to(iContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                    // , backgroundColor: "#F77737"
                     gsap.to(tContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
                     iContent.style.display = "block";
                     gsap.to('#biInstagram', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
@@ -92,7 +99,6 @@
                     break;
                 case 'twitter':
                     gsap.to(tContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                    // , backgroundColor: "#1DA1F2"
                     gsap.to(iContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
                     iContent.style.display = "block";
                     gsap.to('#biTwitter', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
