@@ -361,34 +361,7 @@ div.fullwidth {
   align-items: center;
   margin: auto;
 }
-div.fullwidth.reverse {
-  flex-direction: row-reverse;
-}
-div.fullwidth .textgroup {
-  width: 100%;
-}
-div.fullwidth .textgroup,
-div.fullwidth .textgroup * {
-  width: 90% !important;
-  justify-content: start;
-  align-items: flex-start;
-  text-align: left;
-}
-div.fullwidth.reverse .textgroup,
-div.fullwidth.reverse .textgroup * {
-  justify-content: end;
-  align-items: flex-end;
-  text-align: right;
-}
-div.fullwidth .imagegroup {
-  width: 60%;
-}
-div.fullwidth .imagegroup img {
-  width: 100%;
-  height: auto;
-  border: none;
-  padding: 1em;
-}
+
 @media screen and (max-width: 760px) {
   div.fullwidth {
     flex-direction: column-reverse !important;

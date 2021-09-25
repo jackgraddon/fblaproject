@@ -27,9 +27,19 @@
     <link href="../css/styles.css" rel="stylesheet">
     <!-- Page CSS -->
     <style>
-        @media screen and (max-width: 760px) and (pointer: coarse) {
-            body {
-                background-color: black;
+        @media screen and (max-width: 760px) {
+            .fullpage {
+                min-height: 70vh;
+            }
+
+            .textgroup {
+                padding: 5vh 0;
+            }
+        }
+
+        @media (pointer: coarse) {
+            .btn-close {
+                display: inline-block;
             }
         }
     </style>
@@ -62,7 +72,7 @@
     <div class="fullpage">
         <div id="iContainer" class="textgroup" onclick="openPlatform('instagram');" style="height: 100%;">
             <i class="bi bi-instagram" style="font-size: xx-large" id="biInstagram"></i>
-            <div id="iContent" class="content" style="opacity: 0; height: 0px;">
+            <div id="iContent" class="content" style="opacity: 0; height: 0px; display: none;">
                 <div id="curator-feed-instagram-only-layout" style="height: 70%; margin: auto;">
                     <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
                 </div>
@@ -70,7 +80,7 @@
         </div>
         <div id="tContainer" class="textgroup" onclick="openPlatform('twitter');" style="height: 100%;">
             <i class="bi bi-twitter" style="font-size: xx-large" id="biTwitter"></i>
-            <div id="tContent" class="content" style="opacity: 0; height: 0px;">
+            <div id="tContent" class="content" style="opacity: 0; height: 0px; display: none;">
                 <div id="curator-feed-default-feed-layout" style="height: 70%; margin: auto;">
                     <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
                 </div>
@@ -81,41 +91,81 @@
 
     <!-- Page JS -->
     <script>
-        let opened;
+        let opened = false;
         let iContainer = document.getElementById('iContainer');
         let tContainer = document.getElementById('tContainer');
         let iContent = document.getElementById('iContent');
         let tContent = document.getElementById('tContent');
         function openPlatform(platform) {
             let windowWidth = window.innerWidth;
-            switch (platform) {
-                case 'instagram':
-                    gsap.to(iContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                    gsap.to(tContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                    iContent.style.display = "block";
-                    gsap.to('#biInstagram', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
-                    gsap.from(iContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
-                    gsap.to(iContent, 1.5, { delay: 1.5, opacity: 1, height: 'auto', ease: "power2.inOut" });
-                    break;
-                case 'twitter':
-                    gsap.to(tContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                    gsap.to(iContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                    iContent.style.display = "block";
-                    gsap.to('#biTwitter', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
-                    gsap.from(tContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
-                    gsap.to(tContent, 1.5, { delay: 1.5, opacity: 1, height: 'auto', ease: "power2.inOut" });
-                    break;
+            let windowHeight = window.innerHeight;
+            if (opened) {
+                if (windowWidth > 760) {
+                    window.scrollTo(0, 0);
+                    gsap.to("#iContent, #tContent", 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
+                    gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
+                    gsap.to('#biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
+                    gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, width: windowWidth / 2, ease: "power2.inOut" });
+                    opened = false;
+                } else if (windowWidth <= 760) {
+                    gsap.to("#iContainer, #tContainer", 0, { display: 'flex' });
+                    gsap.to("#iContent, #tContent", 1, { opacity: 0, height: '0', display: 'none', ease: "power2.inOut" });
+                    gsap.to("#iContainer, #tContainer", 1, { opacity: 1, height: '0', ease: "power2.inOut" });
+                    opened = false;
+                }
+            } else if (windowWidth > 760) {
+                switch (platform) {
+                    case 'instagram':
+                        iContent.style.display = "flex";
+                        gsap.to(iContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
+                        gsap.to(tContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
+                        gsap.to('#biInstagram', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
+                        gsap.from(iContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
+                        gsap.to(iContent, 1.5, { delay: 1.5, opacity: 1, height: 'auto', ease: "power2.inOut" });
+                        break;
+                    case 'twitter':
+                        tContent.style.display = "flex";
+                        gsap.to(tContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
+                        gsap.to(iContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
+                        gsap.to('#biTwitter', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
+                        gsap.from(tContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
+                        gsap.to(tContent, 1.5, { delay: 1.5, opacity: 1, height: 'auto', ease: "power2.inOut" });
+                        break;
+                }
+                opened = true;
+            } else if (windowWidth <= 760) {
+                switch (platform) {
+                    case 'instagram':
+                        iContent.style.display = "flex";
+                        gsap.to(iContent, 1.5, { opacity: 1, height: 'auto', ease: "power2.inOut" });
+                        gsap.to(iContainer, 1.5, { minHeight: windowHeight, maxHeight: 'fit-content', ease: "power2.inOut" });
+                        gsap.to(tContainer, 1.5, { height: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
+                        break;
+                    case 'twitter':
+                        tContent.style.display = "flex";
+                        gsap.to(tContent, 1.5, { opacity: 1, height: 'auto', ease: "power2.inOut" });
+                        gsap.to(tContainer, 1.5, { minHeight: windowHeight, maxHeight: 'fit-content', ease: "power2.inOut" });
+                        gsap.to(iContainer, 1.5, { height: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
+                        break;
+                }
+                opened = true;
             }
-            opened = true;
         }
         window.addEventListener("keydown", function () {
             let windowWidth = window.innerWidth;
-            if (event.keyCode === 27 && opened) {
+            let windowHeight = window.innerHeight;
+            if (event.keyCode === 27 && opened && windowWidth > 760) {
                 window.scrollTo(0, 0);
                 gsap.to("#iContent, #tContent", 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
                 gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
-                // gsap.to('#biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
-                gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, width: innerWidth / 2, ease: "power2.inOut" });
+                gsap.to('#biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
+                gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, width: windowWidth / 2, ease: "power2.inOut" });
+                opened = false;
+            } else if (event.keyCode === 27 && opened) {
+                window.scrollTo(0, 0);
+                gsap.to("#iContent, #tContent", 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
+                gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
+                gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, height: 'auto', ease: "power2.inOut" });
                 opened = false;
             }
         });
@@ -155,13 +205,13 @@
         crossorigin="anonymous"></script>
     <!-- Curator Socials -->
     <script type="text/javascript">
-        /* curator-feed-instagram-only-layout */
+        /* Instagram */
         (function () {
             var i, e, d = document, s = "script"; i = d.createElement("script"); i.async = 1;
             i.src = "https://cdn.curator.io/published/9fe203b9-6f86-439f-9a82-e712ecb73b8e.js";
             e = d.getElementsByTagName(s)[0]; e.parentNode.insertBefore(i, e);
         })();
-        /* curator-feed-twitter-feed-layout */
+        /* Twitter */
         (function () {
             var i, e, d = document, s = "script"; i = d.createElement("script"); i.async = 1;
             i.src = "https://cdn.curator.io/published/133ddac4-f17e-4385-925a-7db55fb4ae25.js";
