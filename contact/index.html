@@ -30,23 +30,23 @@
 
 <body style="opacity: 0;">
     <div class="nav">
-        <a href="../" id="homelinkM">
+        <a onclick="linkClicked('../')" id="homelinkM">
             <h1>//Generated</h1>
         </a>
         <div class="d-flex flex-row">
-            <a href="../about/" id="aboutlink" class="pageLink">
+            <a onclick="linkClicked('../about/')" id="aboutlink" class="pageLink">
                 <h5>About</h5>
             </a>
-            <a href="../contact/" id="contactlink" class="pageLink active">
+            <a onclick="linkClicked('../contact/')" id="contactlink" class="pageLink active">
                 <h5>Contact</h5>
             </a>
-            <a href="../" id="homelink">
+            <a onclick="linkClicked('../')" id="homelink">
                 <h1>//Generated</h1>
             </a>
-            <a href="../socials/" id="socialslink" class="pageLink">
+            <a onclick="linkClicked('../socials/')" id="socialslink" class="pageLink">
                 <h5>Socials</h5>
             </a>
-            <a href="../shop/" id="shoplink" class="pageLink">
+            <a onclick="linkClicked('../shop/')" id="shoplink" class="pageLink">
                 <h5>Shop</h5>
             </a>
         </div>
@@ -88,16 +88,16 @@
     <div class="footer">
         <h1>//Generated</h1>
         <div class="links">
-            <a href="../about/" id="aboutlink">
+            <a onclick="linkClicked('../about/')" id="aboutlink">
                 <h5>About</h5>
             </a>
-            <a href="../contact/" id="contactlink">
+            <a onclick="linkClicked('../contact/')" id="contactlink">
                 <h5>Contact</h5>
             </a>
-            <a href="../socials/" id="socialslink">
+            <a onclick="linkClicked('../socials/')" id="socialslink">
                 <h5>Socials</h5>
             </a>
-            <a href="../shop/" id="shoplink">
+            <a onclick="linkClicked('../shop/')" id="shoplink">
                 <h5>Shop</h5>
             </a>
         </div>
@@ -116,6 +116,13 @@
         };
         // Disable Right Click
         document.addEventListener('contextmenu', event => event.preventDefault());
+        // Visual Effects when nav link clicked
+        function linkClicked(link) {
+            gsap.to('body', 0.5, { opacity: 0, ease: "power2.inOut" });
+            setTimeout(() => {
+                window.location.href = link;
+            }, 500);
+        }
     </script>
     <!-- Bootstrap JS Bundle (bootstrap.js + popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

@@ -32,23 +32,23 @@
 
 <body style="opacity: 0;">
     <div class="nav">
-        <a href="./" id="homelinkM">
+        <a onclick="linkClicked('./')" id="homelinkM">
             <h1>//Generated</h1>
         </a>
         <div class="d-flex flex-row">
-            <a href="./about/" id="aboutlink" class="pageLink">
+            <a onclick="linkClicked('./about/')" id="aboutlink" class="pageLink">
                 <h5>About</h5>
             </a>
-            <a href="./contact/" id="contactlink" class="pageLink">
+            <a onclick="linkClicked('./contact/')" id="contactlink" class="pageLink">
                 <h5>Contact</h5>
             </a>
-            <a href="./" id="homelink">
+            <a onclick="linkClicked('./')" id="homelink">
                 <h1>//Generated</h1>
             </a>
-            <a href="./socials/" id="socialslink" class="pageLink">
+            <a onclick="linkClicked('./socials/')" id="socialslink" class="pageLink">
                 <h5>Socials</h5>
             </a>
-            <a href="./shop/" id="shoplink" class="pageLink">
+            <a onclick="linkClicked('./shop/')" id="shoplink" class="pageLink">
                 <h5>Shop</h5>
             </a>
         </div>
@@ -91,7 +91,7 @@
                 you asked for. Together, these two AIs can generate images that offer familiar glimpses of reality, yet
                 feel 'broken' somehow.
             </p>
-            <a class="btn btn-primary" href="./about/">
+            <a class="btn btn-primary" onclick="linkClicked('./about/')">
                 Learn More
             </a>
         </div>
@@ -100,16 +100,16 @@
     <div class="footer">
         <h1>//Generated </h1>
         <div class="links">
-            <a href="./about/" id="aboutlinkf">
+            <a onclick="linkClicked('./about/')" id="aboutlinkf">
                 <h5>About</h5>
             </a>
-            <a href="./contact/" id="contactlinkf">
+            <a onclick="linkClicked('./contact/')" id="contactlinkf">
                 <h5>Contact</h5>
             </a>
-            <a href="./socials/" id="socialslinkf">
+            <a onclick="linkClicked('./socials/')" id="socialslinkf">
                 <h5>Socials</h5>
             </a>
-            <a href="./shop/" id="shoplinkf">
+            <a onclick="linkClicked('./shop/')" id="shoplinkf">
                 <h5>Shop</h5>
             </a>
         </div>
@@ -133,6 +133,13 @@
 
         // Disable Right Click
         document.addEventListener('contextmenu', event => event.preventDefault());
+        // Visual Effects when nav link clicked
+        function linkClicked(link) {
+            gsap.to('body', 0.5, { opacity: 0, ease: "power2.inOut" });
+            setTimeout(() => {
+                window.location.href = link;
+            }, 500);
+        }
         // Set playback rate for background video and play video
         document.getElementById('generationBG').playbackRate = "0.25";
         document.getElementById('generationBG').play();

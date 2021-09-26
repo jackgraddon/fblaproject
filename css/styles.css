@@ -194,6 +194,7 @@ a {
   color: var(--color);
   padding: 0rem 5vw;
   text-decoration: none !important;
+  cursor: pointer;
 }
 .nav #homelinkM {
   display: none;
@@ -223,6 +224,7 @@ a {
   text-decoration: none;
   color: var(--color);
   transition: 150ms;
+  cursor: pointer;
 }
 @media screen and (max-width: 760px) {
   .nav #homelinkM {
