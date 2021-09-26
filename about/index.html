@@ -29,18 +29,12 @@
     <!-- Page CSS -->
     <style>
         .swiper {
-            margin: 10vh auto;
-            width: 100vw;
+            width: 75vw;
+            margin: 5vh auto;
             height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .swiper-wrapper {
-            margin: 0;
-            padding: 0;
-            width: 75vw;
         }
 
         .swiper-slide {
@@ -75,7 +69,22 @@
             border-radius: 1rem;
         }
 
+        #howToMobile {
+            opacity: 0;
+            display: none;
+        }
+
+        #howToComputer {
+            opacity: 0;
+        }
+
         @media screen and (max-width: 760px) {
+            .swiper {
+                width: 100vw;
+                overflow: hidden;
+                margin: 2vh auto;
+            }
+
             .swiper-wrapper {
                 width: 90vw !important;
             }
@@ -84,6 +93,14 @@
             .swiper-slide h2,
             .swiper-slide a {
                 width: 90%;
+            }
+
+            #howToComputer {
+                display: none;
+            }
+
+            #howToMobile {
+                display: block;
             }
         }
     </style>
@@ -141,23 +158,15 @@
                     <h2>What is VQGAN?</h2>
                     <p>VQGAN is a generative adversarial neural network, a type of machine learning where two neural
                         networks compete with each other in a sort of game where one network's win is the other
-                        network's
-                        loss. In VQGAN, the game they play is "Who can generate the best image?" The winner of each
-                        round in
-                        the game is determined by CLIP (see below). A game's number of rounds is defined by the
-                        user,
-                        with
-                        the more rounds played meaning the higher quality the resulting image. Each network uses
-                        input
-                        on
-                        the previous round to build upon its generation skills, which gives us a more detailed image
-                        with
-                        more clarity provided as to what the image is.
+                        network's loss. In VQGAN, the game they play is "Who can generate the best image?" The winner of
+                        each round in the game is determined by CLIP (see below). A game's number of rounds is defined
+                        by the user, with the more rounds played meaning the higher quality the resulting image. Each
+                        network uses input on the previous round to build upon its generation skills, which gives us a
+                        more detailed image with more clarity provided as to what the image is.
                     </p>
                     <a href="https://en.wikipedia.org/wiki/Generative_adversarial_network" target="_blank"
-                        class="">Learn
-                        more
-                        about GANs <i class="bi bi-chevron-right"></i></a>
+                        class="">Learn more about GANs <i class="bi bi-chevron-right"></i>
+                    </a>
                 </div>
             </div>
             <div class="swiper-slide"
@@ -165,25 +174,22 @@
                 <div>
                     <h2>What is CLIP?</h2>
                     <p>CLIP (Contrastive Language–Image Pre-training) is a machine learning algorithm that accepts
-                        an
-                        image
-                        input, and determines what that image looks like. For example, if given an image of a
-                        banana, it
-                        would return a list of things it thinks it couild be, with confidence levels on which it
-                        thinks
-                        is
-                        most correct labeled with percentages. With VQGAN, it accepts a generated image each round,
-                        and
-                        is
-                        asked if it looks like the prompt you gave VQGAN. This is how VQGAN can generate images that
-                        look
-                        like what we asked for, or similar to it.
+                        an image input, and determines what that image looks like. For example, if given an image of a
+                        banana, it would return a list of things it thinks it couild be, with confidence levels on which
+                        it thinks is most correct labeled with percentages. With VQGAN, it accepts a generated image
+                        each round, and is asked if it looks like the prompt you gave VQGAN. This is how VQGAN can
+                        generate images that look like what we asked for, or similar to it.
                     </p>
-                    <a href="https://openai.com/blog/clip/" target="_blank" class="">Learn more
-                        about CLIP <i class="bi bi-chevron-right"></i></a>
+                    <a href="https://openai.com/blog/clip/" target="_blank" class="">
+                        Learn more about CLIP <i class="bi bi-chevron-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        <p id="howToComputer">Use the arrow keys to switch cards</p>
+        <p id="howToMobile">Swipe the cards to view more</p>
     </div>
 
     <div class="footer">
@@ -205,17 +211,50 @@
     </div>
 
     <script>
-        // Onload effects
+        // Onload Events
         window.onload = function () {
+            // Play effects
             if (typeof gsap !== 'undefined') {
                 window.scrollTo(0, 0);
                 gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
             } else {
                 document.querySelector('body').style.opacity = 1;
             }
+            // Add touch start event listeners
+            window.addEventListener("touchstart", handleStart, false);
         };
+
         // Disable Right Click
         document.addEventListener('contextmenu', event => event.preventDefault());
+        // Inactivity Check
+        var timeoutID;
+        function setup() {
+            this.addEventListener("mousemove", resetTimer, false);
+            this.addEventListener("mousedown", resetTimer, false);
+            this.addEventListener("keydown", resetTimer, false);
+            this.addEventListener("DOMMouseScroll", resetTimer, false);
+            this.addEventListener("mousewheel", resetTimer, false);
+            this.addEventListener("touchmove", resetTimer, false);
+            this.addEventListener("MSPointerMove", resetTimer, false);
+            startTimer();
+        }
+        setup();
+        function startTimer() {
+            timeoutID = window.setTimeout(goInactive, 5000);
+        }
+        function resetTimer(e) {
+            window.clearTimeout(timeoutID);
+            goActive();
+        }
+        function goInactive() {
+            if (window.innerWidth <= 760) document.getElementById('howToMobile').style.opacity = 1;
+            else if (window.innerWidth > 760) document.getElementById('howToComputer').style.opacity = 1;
+        }
+        function goActive() {
+            if (window.innerWidth <= 760) document.getElementById('howToMobile').style.opacity = 0;
+            else if (window.innerWidth > 760) document.getElementById('howToComputer').style.opacity = 0;
+            startTimer();
+        }
     </script>
     <!-- Bootstrap JS Bundle (bootstrap.js + popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -232,7 +271,14 @@
     <script>
         const swiper = new Swiper('.swiper', {
             effect: "cards",
-            grabCursor: true
+            cardsEffect: {
+                slideShadows: true
+            },
+            grabCursor: true,
+            keyboard: {
+                enabled: true,
+                onlyInViewport: false,
+            },
         });
     </script>
 </body>
