@@ -23,6 +23,7 @@
   --tan: #efd6ac;
   --green: #183a37;
   --purple: #432534;
+  --swiper-theme-color: var(--color);
 }
 
 /* Fonts */
