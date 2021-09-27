@@ -30,19 +30,19 @@
     <link href="../css/styles.css" rel="stylesheet">
     <!-- Page CSS -->
     <style>
+        .fullwidth {
+            min-height: 60vh;
+            height: fit-content;
+            margin: 10vh auto;
+        }
+
         @media screen and (max-width: 760px) {
-            .fullpage {
-                min-height: 70vh;
+            .fullwidth {
+                min-height: fit-content;
             }
 
             .textgroup {
                 padding: 5vh 0;
-            }
-        }
-
-        @media (pointer: coarse) {
-            .btn-close {
-                display: inline-block;
             }
         }
     </style>
@@ -72,8 +72,7 @@
         </div>
     </div>
 
-    <div class="fullwidth" style="min-height: 60vh; height: fit-content; margin: 10vh auto;">
-        <!-- Place <div> tag where you want the feed to appear -->
+    <div class="fullwidth">
         <div id="curator-feed-instagram-only-layout"><a href="https://curator.io" target="_blank"
                 class="crt-logo crt-tag">Powered by Curator.io</a></div>
     </div>
