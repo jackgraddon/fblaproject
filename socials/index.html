@@ -73,26 +73,13 @@
     </div>
 
     <div class="fullwidth" style="min-height: 60vh; height: fit-content; margin: 10vh auto;">
-        <div id="iContainer" class="textgroup" onclick="openPlatform('instagram');" style="height: 100%;">
-            <i class="bi bi-instagram" style="font-size: xx-large" id="biInstagram"></i>
-            <div id="iContent" class="content" style="opacity: 0; height: 0px; display: none;">
-                <div id="curator-feed-instagram-only-layout" style="height: 70%; margin: auto;">
-                    <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
-                </div>
-            </div>
-        </div>
-        <div id="tContainer" class="textgroup" onclick="openPlatform('twitter');" style="height: 100%;">
-            <i class="bi bi-twitter" style="font-size: xx-large" id="biTwitter"></i>
-            <div id="tContent" class="content" style="opacity: 0; height: 0px; display: none;">
-                <div id="curator-feed-default-feed-layout" style="height: 70%; margin: auto;">
-                    <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
-                </div>
-            </div>
-        </div>
+        <!-- Place <div> tag where you want the feed to appear -->
+        <div id="curator-feed-instagram-only-layout"><a href="https://curator.io" target="_blank"
+                class="crt-logo crt-tag">Powered by Curator.io</a></div>
     </div>
-    <p>This page is still under testing</p>
+    <!-- <p>This page is still under testing</p> -->
 
-    <!-- Page JS -->
+    <!-- Page JS
     <script>
         let opened = false;
         let iContainer = document.getElementById('iContainer');
@@ -172,7 +159,7 @@
                 opened = false;
             }
         });
-    </script>
+    </script> -->
 
     <div class="footer">
         <h1>//Generated</h1>
@@ -219,16 +206,10 @@
         crossorigin="anonymous"></script>
     <!-- Curator Socials -->
     <script type="text/javascript">
-        /* Instagram */
+        /* curator-feed-instagram-only-layout */
         (function () {
             var i, e, d = document, s = "script"; i = d.createElement("script"); i.async = 1;
             i.src = "https://cdn.curator.io/published/9fe203b9-6f86-439f-9a82-e712ecb73b8e.js";
-            e = d.getElementsByTagName(s)[0]; e.parentNode.insertBefore(i, e);
-        })();
-        /* Twitter */
-        (function () {
-            var i, e, d = document, s = "script"; i = d.createElement("script"); i.async = 1;
-            i.src = "https://cdn.curator.io/published/133ddac4-f17e-4385-925a-7db55fb4ae25.js";
             e = d.getElementsByTagName(s)[0]; e.parentNode.insertBefore(i, e);
         })();
     </script>
