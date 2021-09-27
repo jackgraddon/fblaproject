@@ -556,3 +556,11 @@ form {
 .form-input:focus::placeholder {
   color: transparent !important;
 }
+
+hr {
+  width: 10vw;
+  background-color: var(--color);
+  border: 1px solid var(--color);
+  opacity: 1;
+  margin: auto;
+}
