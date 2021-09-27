@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div class="fullpage">
+    <div class="fullwidth" style="min-height: 60vh; height: fit-content; margin: 10vh auto;">
         <div id="iContainer" class="textgroup" onclick="openPlatform('instagram');" style="height: 100%;">
             <i class="bi bi-instagram" style="font-size: xx-large" id="biInstagram"></i>
             <div id="iContent" class="content" style="opacity: 0; height: 0px; display: none;">
@@ -122,17 +122,17 @@
                         iContent.style.display = "flex";
                         gsap.to(iContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
                         gsap.to(tContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                        gsap.to('#biInstagram', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
-                        gsap.from(iContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
-                        gsap.to(iContent, 1.5, { delay: 1.5, opacity: 1, height: 'auto', ease: "power2.inOut" });
+                        gsap.to('#biInstagram', 1.5, { opacity: '0', x: 150, display: 'none', ease: "power2.inOut" });
+                        gsap.from(iContent, 1.5, { delay: 1.5, y: 50, ease: "power2.out" });
+                        gsap.to(iContent, 1.5, { delay: 1.5, opacity: 1, height: 'fit-content', ease: "power2.out" });
                         break;
                     case 'twitter':
                         tContent.style.display = "flex";
                         gsap.to(tContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
                         gsap.to(iContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                        gsap.to('#biTwitter', 1.5, { delay: 1.5, opacity: '0', ease: "power2.inOut" });
-                        gsap.from(tContent, 1.5, { delay: 1.5, y: 50, ease: "power2.inOut" });
-                        gsap.to(tContent, 1.5, { delay: 1.5, opacity: 1, height: 'auto', ease: "power2.inOut" });
+                        gsap.to('#biTwitter', 1.5, { opacity: '0', x: -150, display: 'none', ease: "power2.inOut" });
+                        gsap.from(tContent, 1.5, { delay: 1.5, ease: "power2.out" });
+                        gsap.to(tContent, 1.5, { delay: 1.5, opacity: 1, height: 'fit-content', ease: "power2.out" });
                         break;
                 }
                 opened = true;
@@ -159,14 +159,14 @@
             let windowHeight = window.innerHeight;
             if (event.keyCode === 27 && opened && windowWidth > 760) {
                 window.scrollTo(0, 0);
-                gsap.to("#iContent, #tContent", 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
-                gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
-                gsap.to('#biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
-                gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, width: windowWidth / 2, ease: "power2.inOut" });
+                gsap.to("#iContent, #tContent", 0.5, { opacity: 0, ease: "power2.in" });
+                gsap.to("#iContent, #tContent", 0, { height: '0px', delay: 0.5 })
+                gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', display: 'block', x: 0, ease: "power2.inOut" });
+                gsap.to("#iContainer, #tContainer", 1.5, { display: 'flex', opacity: 1, width: windowWidth / 2, ease: "power2.inOut" });
                 opened = false;
             } else if (event.keyCode === 27 && opened) {
                 window.scrollTo(0, 0);
-                gsap.to("#iContent, #tContent", 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
+                gsap.to("#iContent, #tContent", 0.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
                 gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
                 gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, height: 'auto', ease: "power2.inOut" });
                 opened = false;
