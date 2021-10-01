@@ -35,16 +35,41 @@
 
         .socialHeader a {
             text-decoration: none;
+            font-size: 2rem;
+        }
+
+
+        .socialHeader #external {
+            opacity: 1;
+            transition: 300ms ease;
+            font-size: 1rem;
+            display: block;
+        }
+
+        @media screen and (min-width: 760px) {
+            .socialHeader #external {
+                opacity: 0;
+                transition: 300ms ease;
+                font-size: 1rem;
+                display: block;
+                position: fixed;
+                left: calc(50% - 0.5rem);
+                top: 19vh;
+            }
         }
 
         .socialHeader a svg {
             margin: 20px 40px 10px 40px;
-            transform: scale(2);
-            transition: 300ms ease;
+            /* transform: scale(2); */
+            transition: 500ms ease;
         }
 
         .socialHeader a:hover svg {
-            transform: scale(3);
+            transform: scale(1.1);
+        }
+
+        .socialHeader:hover #external {
+            opacity: 1;
         }
 
         /* @media (prefers-color-scheme: light) {
@@ -102,7 +127,7 @@
             <a href="https://www.tiktok.com/generatedprints" target="_blank">
                 <i class="fab fa-tiktok"></i>
             </a>
-
+            <i id="external" class="bi bi-box-arrow-up-right"></i>
         </div>
     </div>
     <hr>
