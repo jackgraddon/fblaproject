@@ -9,7 +9,7 @@
     <link href="../images/assets/logo/icon.png" rel="icon">
     <meta content="About" name="og:title">
     <meta content="Generated" name="og:site_name">
-    <meta content="../images/assets/promos/promoPost1.png" name="og:image">
+    <meta content="../images/assets/promos/autumn/ogimage.png" name="og:image">
     <meta content="website" name="og:type">
     <meta content="https://generatedprints.com/" name="og:url">
     <meta content="en_US" name="og:locale">
@@ -53,6 +53,12 @@
             </a>
         </div>
     </div>
+    <div class="fullwidth" style="margin-top: 10vh;">
+        <div class="textgroup">
+            <h1>All About Us</h1>
+            <p>Learn all about us at Generated, what we do, and how we do it.</p>
+        </div>
+    </div>
     <div class="swiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"
@@ -89,7 +95,7 @@
                         more detailed image with more clarity provided as to what the image is.
                     </p>
                     <a href="https://en.wikipedia.org/wiki/Generative_adversarial_network" target="_blank"
-                        class="">Learn more about GANs <i class="bi bi-chevron-right"></i>
+                        style="margin-top: 1em;">Learn more about GANs <i class="bi bi-chevron-right"></i>
                     </a>
                 </div>
             </div>
@@ -104,7 +110,7 @@
                         each round, and is asked if it looks like the prompt you gave VQGAN. This is how VQGAN can
                         generate images that look like what we asked for, or similar to it.
                     </p>
-                    <a href="https://openai.com/blog/clip/" target="_blank" class="">
+                    <a href="https://openai.com/blog/clip/" target="_blank" style="margin-top: 1em;">
                         Learn more about CLIP <i class="bi bi-chevron-right"></i>
                     </a>
                 </div>
@@ -200,18 +206,34 @@
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            effect: "cards",
-            cardsEffect: {
-                slideShadows: true
-            },
-            grabCursor: true,
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false,
-            },
-        });
+        const swiper = new Swiper();
+        function setSwiper() {
+            if (window.innerWidth <= 760) {
+                swiper = new Swiper('.swiper', {
+                    effect: "cards",
+                    cardsEffect: {
+                        slideShadows: true
+                    },
+                    grabCursor: true,
+                    keyboard: {
+                        enabled: true,
+                        onlyInViewport: true,
+                    },
+                });
+            } else {
+                swiper = new Swiper(".swiper", {
+                    slidesPerView: "auto",
+                    centeredSlides: true,
+                    spaceBetween: 30,
+                    keyboard: {
+                        enabled: true,
+                        onlyInViewport: true,
+                    },
+                });
+            }
+        }
+        setSwiper();
+        window.onresize = setSwiper();
     </script>
 </body>
 
