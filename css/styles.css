@@ -631,6 +631,9 @@ hr {
   padding: 1rem;
   border-radius: 1rem;
 }
+.swiper-slide div * {
+  color: var(--tan) !important;
+}
 
 #howToMobile {
   opacity: 0;
