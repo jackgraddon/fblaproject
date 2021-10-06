@@ -86,21 +86,22 @@
         <p id="howToComputer">Use the arrow keys to switch cards</p>
         <p id="howToMobile">Swipe the cards to view more</p>
     </div>
-    <div class="fullwidth">
+    <div class="fullwidth" style="margin-bottom: 4em;">
         <div class="textgroup">
             <h3>Supposed to be here?</h3>
             <p>Enter your super-secret-login-code to get in to the shop.</p>
-            <input type="password" id="pageCode">
+            <input class="form-input" name="password" type="password" id="pageCode"
+                style="width: auto; margin-bottom: 0.5rem;">
             <a class="btn btn-primary" onclick="login(document.getElementById('pageCode').value)">Enter</a>
+            <script>
+                document.getElementById('pageCode').addEventListener("keydown", function (e) {
+                    if (e.key == 'Enter') {
+                        login(document.getElementById('pageCode').value);
+                        console.log('event')
+                    } else { console.log(e.key) }
+                }, false);
+            </script>
         </div>
-        <script>
-            function login(password) {
-                var confirmPassword = "";
-                if (password == confirmPassword) {
-                    window.location = "./browse/`";
-                }
-            }
-        </script>
     </div>
 
     <div class="footer">
@@ -139,7 +140,7 @@
             gsap.to('body', 0.5, { opacity: 0, ease: "power2.inOut" });
             setTimeout(() => {
                 window.location.href = link;
-            }, 500);
+            }, 2000);
         }
         // Inactivity Check
         var timeoutID;
@@ -155,7 +156,7 @@
         }
         setup();
         function startTimer() {
-            timeoutID = window.setTimeout(goInactive, 5000);
+            timeoutID = window.setTimeout(goInactive, 20000);
         }
         function resetTimer(e) {
             window.clearTimeout(timeoutID);
@@ -176,6 +177,7 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
     <!-- Require -->
+    <!-- <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script> -->
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
@@ -215,17 +217,21 @@
         window.onresize = setSwiper();
     </script>
     <!-- Crypto JS -->
-    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/index.min.js"></script>
+    <script src="../js/crypto-js.js"></script>
     <script type="text/javascript">
-        // Encrypt
-        var ciphertext = CryptoJS.AES.encrypt('FblaWebDesign', '2021').toString();
-        console.log(ciphertext)
-
-        // Decrypt
-        var bytes = CryptoJS.AES.decrypt(ciphertext, '2021');
-        var originalText = bytes.toString(CryptoJS.enc.Utf8);
-
-        console.log(originalText)
+        function login(input) {
+            var bytes = CryptoJS.AES.decrypt("U2FsdGVkX1+ZRMrzeqBMo3mrKmhnGpSA5VYjUZ40/Es=", '2021');
+            var secretcode = bytes.toString(CryptoJS.enc.Utf8);
+            if (input == secretcode) {
+                document.getElementById('pageCode').style.boxShadow = '0px 0px 0px 3px green';
+                setTimeout(() => { linkClicked('./browse/') }, 500);
+            } else {
+                document.getElementById('pageCode').style.boxShadow = '0px 0px 0px 3px red';
+                gsap.timeline({ repeat: 2 }).fromTo('#pageCode', 0.05, { x: 0, y: 0 }, { x: -300, y: 0 })
+                    .to('#pageCode', 0.05, { x: 300, y: 0 })
+                    .to('#pageCode', 0.05, { x: 0, y: 0 })
+            }
+        }
     </script>
 </body>
 
