@@ -86,6 +86,22 @@
         <p id="howToComputer">Use the arrow keys to switch cards</p>
         <p id="howToMobile">Swipe the cards to view more</p>
     </div>
+    <div class="fullwidth">
+        <div class="textgroup">
+            <h3>Supposed to be here?</h3>
+            <p>Enter your super-secret-login-code to get in to the shop.</p>
+            <input type="password" id="pageCode">
+            <a class="btn btn-primary" onclick="login(document.getElementById('pageCode').value)">Enter</a>
+        </div>
+        <script>
+            function login(password) {
+                var confirmPassword = "";
+                if (password == confirmPassword) {
+                    window.location = "./browse/`";
+                }
+            }
+        </script>
+    </div>
 
     <div class="footer">
         <h1>//Generated</h1>
@@ -159,6 +175,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+    <!-- Require -->
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
@@ -168,7 +185,7 @@
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper();
+        let swiper = new Swiper();
         function setSwiper() {
             if (window.innerWidth <= 760) {
                 swiper = new Swiper('.swiper', {
@@ -196,6 +213,19 @@
         }
         setSwiper();
         window.onresize = setSwiper();
+    </script>
+    <!-- Crypto JS -->
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/index.min.js"></script>
+    <script type="text/javascript">
+        // Encrypt
+        var ciphertext = CryptoJS.AES.encrypt('FblaWebDesign', '2021').toString();
+        console.log(ciphertext)
+
+        // Decrypt
+        var bytes = CryptoJS.AES.decrypt(ciphertext, '2021');
+        var originalText = bytes.toString(CryptoJS.enc.Utf8);
+
+        console.log(originalText)
     </script>
 </body>
 
