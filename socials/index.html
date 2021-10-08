@@ -133,90 +133,6 @@
     <hr>
     <div id="curator-feed-instagram-only-layout" style="margin-top: 5vh;"><a href="https://curator.io" target="_blank"
             class="crt-logo crt-tag">Powered by Curator.io</a></div>
-    <!-- <p>This page is still under testing</p> -->
-
-    <!-- Page JS
-    <script>
-        let opened = false;
-        let iContainer = document.getElementById('iContainer');
-        let tContainer = document.getElementById('tContainer');
-        let iContent = document.getElementById('iContent');
-        let tContent = document.getElementById('tContent');
-        function openPlatform(platform) {
-            let windowWidth = window.innerWidth;
-            let windowHeight = window.innerHeight;
-            if (opened) {
-                if (windowWidth > 760) {
-                    window.scrollTo(0, 0);
-                    gsap.to("#iContent, #tContent", 1.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
-                    gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
-                    gsap.to('#biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
-                    gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, width: windowWidth / 2, ease: "power2.inOut" });
-                    opened = false;
-                } else if (windowWidth <= 760) {
-                    gsap.to("#iContainer, #tContainer", 0, { display: 'flex' });
-                    gsap.to("#iContent, #tContent", 1, { opacity: 0, height: '0', display: 'none', ease: "power2.inOut" });
-                    gsap.to("#iContainer, #tContainer", 1, { opacity: 1, height: '0', ease: "power2.inOut" });
-                    opened = false;
-                }
-            } else if (windowWidth > 760) {
-                switch (platform) {
-                    case 'instagram':
-                        iContent.style.display = "flex";
-                        gsap.to(iContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                        gsap.to(tContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                        gsap.to('#biInstagram', 1.5, { opacity: '0', x: 150, display: 'none', ease: "power2.inOut" });
-                        gsap.from(iContent, 1.5, { delay: 1.5, y: 50, ease: "power2.out" });
-                        gsap.to(iContent, 1.5, { delay: 1.5, opacity: 1, height: 'fit-content', ease: "power2.out" });
-                        break;
-                    case 'twitter':
-                        tContent.style.display = "flex";
-                        gsap.to(tContainer, 1.5, { width: windowWidth, ease: "power2.inOut" });
-                        gsap.to(iContainer, 1.5, { width: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                        gsap.to('#biTwitter', 1.5, { opacity: '0', x: -150, display: 'none', ease: "power2.inOut" });
-                        gsap.from(tContent, 1.5, { delay: 1.5, ease: "power2.out" });
-                        gsap.to(tContent, 1.5, { delay: 1.5, opacity: 1, height: 'fit-content', ease: "power2.out" });
-                        break;
-                }
-                opened = true;
-            } else if (windowWidth <= 760) {
-                switch (platform) {
-                    case 'instagram':
-                        iContent.style.display = "flex";
-                        gsap.to(iContent, 1.5, { opacity: 1, height: 'auto', ease: "power2.inOut" });
-                        gsap.to(iContainer, 1.5, { minHeight: windowHeight, maxHeight: 'fit-content', ease: "power2.inOut" });
-                        gsap.to(tContainer, 1.5, { height: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                        break;
-                    case 'twitter':
-                        tContent.style.display = "flex";
-                        gsap.to(tContent, 1.5, { opacity: 1, height: 'auto', ease: "power2.inOut" });
-                        gsap.to(tContainer, 1.5, { minHeight: windowHeight, maxHeight: 'fit-content', ease: "power2.inOut" });
-                        gsap.to(iContainer, 1.5, { height: '0', opacity: 0, display: 'none', ease: "power2.inOut" });
-                        break;
-                }
-                opened = true;
-            }
-        }
-        window.addEventListener("keydown", function () {
-            let windowWidth = window.innerWidth;
-            let windowHeight = window.innerHeight;
-            if (event.keyCode === 27 && opened && windowWidth > 760) {
-                window.scrollTo(0, 0);
-                gsap.to("#iContent, #tContent", 0.5, { opacity: 0, ease: "power2.in" });
-                gsap.to("#iContent, #tContent", 0, { height: '0px', delay: 0.5 })
-                gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', display: 'block', x: 0, ease: "power2.inOut" });
-                gsap.to("#iContainer, #tContainer", 1.5, { display: 'flex', opacity: 1, width: windowWidth / 2, ease: "power2.inOut" });
-                opened = false;
-            } else if (event.keyCode === 27 && opened) {
-                window.scrollTo(0, 0);
-                gsap.to("#iContent, #tContent", 0.5, { opacity: 0, height: '0px', ease: "power2.inOut" });
-                gsap.to('#biInstagram, #biTwitter', 1.5, { opacity: '1', ease: "power2.inOut" });
-                gsap.to("#iContainer, #tContainer", 1.5, { delay: 1.5, display: 'flex', opacity: 1, height: 'auto', ease: "power2.inOut" });
-                opened = false;
-            }
-        });
-    </script> -->
-
     <div class="footer">
         <h1>//Generated</h1>
         <div class="links">
@@ -260,6 +176,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+    <!-- jsCookie -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"
+        integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>
     <!-- Curator Socials -->
     <script type="text/javascript">
         /* curator-feed-instagram-only-layout */
@@ -277,6 +196,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- Performance Navigation -->
+    <script>
+        function print_nav_timing_data() {
+            // Use getEntriesByType() to just get the "navigation" events
+            var perfEntries = performance.getEntriesByType("navigation");
+
+            for (var i = 0; i < perfEntries.length; i++) {
+                console.log("= Navigation entry[" + i + "]");
+                var p = perfEntries[i];
+                // dom Properties
+                console.log("DOM content loaded = " + (p.domContentLoadedEventEnd - p.domContentLoadedEventStart));
+                console.log("DOM complete = " + p.domComplete);
+                console.log("DOM interactive = " + p.interactive);
+
+                // document load and unload time
+                console.log("document load = " + (p.loadEventEnd - p.loadEventStart));
+                console.log("document unload = " + (p.unloadEventEnd - p.unloadEventStart));
+
+                // other properties
+                console.log("type = " + p.type);
+                console.log("redirectCount = " + p.redirectCount);
+            }
+        }
+        print_nav_timing_data()
+    </script>
 
 
 </body>

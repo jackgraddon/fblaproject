@@ -197,6 +197,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+    <!-- jsCookie -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"
+        integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
@@ -205,6 +208,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- Performance Navigation -->
+    <script>
+        function print_nav_timing_data() {
+            // Use getEntriesByType() to just get the "navigation" events
+            var perfEntries = performance.getEntriesByType("navigation");
+
+            for (var i = 0; i < perfEntries.length; i++) {
+                console.log("= Navigation entry[" + i + "]");
+                var p = perfEntries[i];
+                // dom Properties
+                console.log("DOM content loaded = " + (p.domContentLoadedEventEnd - p.domContentLoadedEventStart));
+                console.log("DOM complete = " + p.domComplete);
+                console.log("DOM interactive = " + p.interactive);
+
+                // document load and unload time
+                console.log("document load = " + (p.loadEventEnd - p.loadEventStart));
+                console.log("document unload = " + (p.unloadEventEnd - p.unloadEventStart));
+
+                // other properties
+                console.log("type = " + p.type);
+                console.log("redirectCount = " + p.redirectCount);
+            }
+        }
+        print_nav_timing_data()
+    </script>
     <script>
         const swiper = new Swiper();
         function setSwiper() {

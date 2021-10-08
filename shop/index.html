@@ -90,15 +90,19 @@
         <div class="textgroup">
             <h3>Supposed to be here?</h3>
             <p>Enter your super-secret-login-code to get in to the shop.</p>
-            <input class="form-input" name="password" type="password" id="pageCode"
-                style="width: auto; margin-bottom: 0.5rem;">
-            <a class="btn btn-primary" onclick="login(document.getElementById('pageCode').value)">Enter</a>
+            <form id="password">
+                <div class="mb-3">
+                    <input class="form-input" type="password" id="password-input" autocomplete="off"
+                        placeholder="Don't forget the three numbers on the back!"></input>
+                </div>
+                <a onclick="login(document.getElementById('password-input').value);" class="btn btn-primary">Enter</a>
+            </form>
             <script>
-                document.getElementById('pageCode').addEventListener("keydown", function (e) {
+                document.getElementById('password-input').addEventListener("keydown", function (e) {
                     if (e.key == 'Enter') {
-                        login(document.getElementById('pageCode').value);
-                        console.log('event')
-                    } else { console.log(e.key) }
+                        e.preventDefault();
+                        login(document.getElementById('password-input').value);
+                    } else return;
                 }, false);
             </script>
         </div>
@@ -176,8 +180,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
-    <!-- Require -->
-    <!-- <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script> -->
+    <!-- jsCookie -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"
+        integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
@@ -186,6 +191,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- Performance Navigation -->
+    <script>
+        function print_nav_timing_data() {
+            // Use getEntriesByType() to just get the "navigation" events
+            var perfEntries = performance.getEntriesByType("navigation");
+
+            for (var i = 0; i < perfEntries.length; i++) {
+                console.log("= Navigation entry[" + i + "]");
+                var p = perfEntries[i];
+                // dom Properties
+                console.log("DOM content loaded = " + (p.domContentLoadedEventEnd - p.domContentLoadedEventStart));
+                console.log("DOM complete = " + p.domComplete);
+                console.log("DOM interactive = " + p.interactive);
+
+                // document load and unload time
+                console.log("document load = " + (p.loadEventEnd - p.loadEventStart));
+                console.log("document unload = " + (p.unloadEventEnd - p.unloadEventStart));
+
+                // other properties
+                console.log("type = " + p.type);
+                console.log("redirectCount = " + p.redirectCount);
+            }
+        }
+        print_nav_timing_data()
+    </script>
     <script>
         let swiper = new Swiper();
         function setSwiper() {
@@ -223,13 +253,15 @@
             var bytes = CryptoJS.AES.decrypt("U2FsdGVkX1+ZRMrzeqBMo3mrKmhnGpSA5VYjUZ40/Es=", '2021');
             var secretcode = bytes.toString(CryptoJS.enc.Utf8);
             if (input == secretcode) {
-                document.getElementById('pageCode').style.boxShadow = '0px 0px 0px 3px green';
+                document.getElementById('password-input').style.boxShadow = '0px 0px 0px 3px green';
                 setTimeout(() => { linkClicked('./browse/') }, 500);
+                Cookies.set('granted', 'U2FsdGVkX1+NdEwrA0U8vRXSjXkrSAHjxeS5D9/0ubk=');
             } else {
-                document.getElementById('pageCode').style.boxShadow = '0px 0px 0px 3px red';
-                gsap.timeline({ repeat: 2 }).fromTo('#pageCode', 0.05, { x: 0, y: 0 }, { x: -300, y: 0 })
-                    .to('#pageCode', 0.05, { x: 300, y: 0 })
-                    .to('#pageCode', 0.05, { x: 0, y: 0 })
+                document.getElementById('password-input').style.boxShadow = '0px 0px 0px 3px red';
+                gsap.timeline({ repeat: 2 }).fromTo('#password-input', 0.05, { x: 0, y: 0 }, { x: -300, y: 0 })
+                    .to('#password-input', 0.05, { x: 300, y: 0 })
+                    .to('#password-input', 0.05, { x: 0, y: 0 });
+                Cookies.set('granted', 'U2FsdGVkX1/KiQnsdNyglOP2xpZJhgzXMMs+ESunJhw=');
             }
         }
     </script>
