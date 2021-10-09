@@ -143,13 +143,6 @@
     <script>
         // Onload Events
         window.onload = function () {
-            // Play effects
-            if (typeof gsap !== 'undefined') {
-                window.scrollTo(0, 0);
-                gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
-            } else {
-                document.querySelector('body').style.opacity = 1;
-            }
             // Add touch start event listeners
             window.addEventListener("touchstart", handleStart, false);
         };
@@ -208,30 +201,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <!-- Performance Navigation -->
+    <!-- Detect Cache and Load Animations -->
     <script>
-        function print_nav_timing_data() {
-            // Use getEntriesByType() to just get the "navigation" events
-            var perfEntries = performance.getEntriesByType("navigation");
+        // If the page is loaded from cache, refresh it to show up to date content.
+        (function () {
+            window.onpageshow = function (event) {
+                if (event.persisted) {
+                    window.location.reload();
+                }
+            };
+        })();
 
-            for (var i = 0; i < perfEntries.length; i++) {
-                console.log("= Navigation entry[" + i + "]");
-                var p = perfEntries[i];
-                // dom Properties
-                console.log("DOM content loaded = " + (p.domContentLoadedEventEnd - p.domContentLoadedEventStart));
-                console.log("DOM complete = " + p.domComplete);
-                console.log("DOM interactive = " + p.interactive);
-
-                // document load and unload time
-                console.log("document load = " + (p.loadEventEnd - p.loadEventStart));
-                console.log("document unload = " + (p.unloadEventEnd - p.unloadEventStart));
-
-                // other properties
-                console.log("type = " + p.type);
-                console.log("redirectCount = " + p.redirectCount);
+        // Onload effects
+        window.onload = function () {
+            if (typeof gsap !== 'undefined') {
+                window.scrollTo(0, 0);
+                gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
+            } else {
+                document.querySelector('body').style.opacity = 1;
             }
-        }
-        print_nav_timing_data()
+        };
     </script>
     <script>
         const swiper = new Swiper();
