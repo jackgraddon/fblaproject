@@ -82,19 +82,19 @@
             <div class="textgroup">
                 <h2>Find Your Print</h2>
                 <p>Looking for a specific print?</p>
-                <form>
+                <form style="margin-bottom: 10px;">
                     <div class="halfwidth">
                         <label for="category" class="dropdownContainer">Choose Category</label>
                         <input type="checkbox" id="category" class="dropdownCheck" onclick="toggleDropdown('category')">
                         <ul class="dropdown" id="categoryDrop">
                             <li><a class="limited">Autumn</a></li>
-                            <li><a>Lorem Ipsum</a></li>
-                            <li><a>Lorem Ipsum</a></li>
-                            <li><a>Lorem Ipsum</a></li>
+                            <li><a>Abstract</a></li>
+                            <li><a>Nature</a></li>
+                            <li><a>Other</a></li>
                         </ul>
                     </div>
                     <div class="halfwidth">
-                        <label for="something" class="dropdownContainer">Choose Category</label>
+                        <label for="something" class="dropdownContainer">Some Other Menu</label>
                         <input type="checkbox" id="something" class="dropdownCheck"
                             onclick="toggleDropdown('something')">
                         <ul class="dropdown" id="somethingDrop">
@@ -105,6 +105,13 @@
                         </ul>
                     </div>
                 </form>
+                <a class="btn btn-primary" onclick="findPrints()">Find Prints</a>
+            </div>
+        </div>
+        <div class="fullpage">
+            <div class="textgroup">
+                <h2>This is here to fill space</h2>
+                <p>For now...</p>
             </div>
         </div>
         <script>
@@ -122,6 +129,9 @@
                 } else if (check.checked == false) {
                     gsap.to(`#${elem}Drop`, 0.4, { height: 0, ease: "power2.out" })
                 }
+            }
+            function findPrints() {
+                alert('this will do something some day')
             }
         </script>
     </section>
