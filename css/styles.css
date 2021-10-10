@@ -501,6 +501,13 @@ img.framed {
 form {
   font-family: Above;
 }
+form.div.halfgroup {
+  display: flex;
+  flex-direction: row;
+}
+form div.halfwidth {
+  width: 50%;
+}
 
 @media (prefers-color-scheme: light) {
   .form-input::placeholder {
@@ -563,6 +570,63 @@ form {
 }
 .form-input:focus::placeholder {
   color: transparent !important;
+}
+form label.dropdownContainer {
+  transition: 500ms ease;
+  display: block;
+  width: 100%;
+  padding: 5px;
+  background-color: var(--neutral);
+  border: var(--color) 5px solid;
+  border-radius: 0 !important;
+  color: var(--color);
+  font-family: Comfortaa;
+  cursor: pointer;
+}
+.dropdown {
+  width: 100%;
+  height: 0px;
+  overflow: hidden !important;
+  text-align: center;
+  transition: 500ms ease;
+  margin-left: auto;
+  padding: 0;
+}
+
+.dropdown li {
+  padding: 10px 5px;
+  border-left: var(--color) 5px solid;
+  border-right: var(--color) 5px solid;
+  list-style: none;
+  background-color: var(--color);
+  transition: 300ms ease;
+  cursor: pointer;
+}
+.dropdown li:last-child {
+  border-bottom: var(--color) 5px solid;
+}
+.dropdown li a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: var(--neutral);
+  font-family: Comfortaa;
+  transition: 300ms ease;
+}
+.dropdown li:hover {
+  background-color: var(--neutral);
+}
+.dropdown li:hover a {
+  color: var(--color);
+}
+.dropdownCheck {
+  position: absolute;
+  opacity: 0;
+  height: 0px;
+}
+
+form select option:first-child {
+  display: none;
 }
 
 hr {

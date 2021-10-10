@@ -78,11 +78,51 @@
         </div>
     </section>
     <section id="page" style="opacity: 0;">
-        <div class="fullwidth" style="margin: 10vh;">
+        <div class="fullwidth" style="margin-top: 10vh;">
             <div class="textgroup">
                 <h2>Find Your Print</h2>
+                <p>Looking for a specific print?</p>
+                <form>
+                    <div class="halfgroup">
+                        <div class="halfwidth">
+                            <label for="category" class="dropdownContainer">Choose Category</label>
+                            <input type="checkbox" id="category" class="dropdownCheck"
+                                onclick="toggleDropdown('category')">
+                            <ul class="dropdown" id="categoryDrop">
+                                <li><a href="#">Lorem Ipsum</a></li>
+                                <li><a href="#">Lorem Ipsum</a></li>
+                                <li><a href="#">Lorem Ipsum</a></li>
+                                <li><a href="#">Lorem Ipsum</a></li>
+                            </ul>
+                        </div>
+                        <div class="halfwidth">
+                            <label for="category" class="dropdownContainer">Choose Category</label>
+                            <input type="checkbox" id="something" class="dropdownCheck"
+                                onclick="toggleDropdown('something')">
+                            <ul class="dropdown" id="somethingDrop">
+                                <li><a href="#">Lorem Ipsum</a></li>
+                                <li><a href="#">Lorem Ipsum</a></li>
+                                <li><a href="#">Lorem Ipsum</a></li>
+                                <li><a href="#">Lorem Ipsum</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+        <script>
+            function toggleDropdown(elem) {
+                let check = document.getElementById(elem);
+                if (check.checked == true) {
+                    document.getElementById(`${elem}Drop`).style.height = 'auto';
+                    let height = document.getElementById(`${elem}Drop`).scrollHeight + 5;
+                    document.getElementById(`${elem}Drop`).style.height = '0';
+                    gsap.to(`#${elem}Drop`, 0.4, { height: `${height}px`, ease: "power2.out" })
+                } else if (check.checked == false) {
+                    gsap.to(`#${elem}Drop`, 0.4, { height: 0, ease: "power2.out" })
+                }
+            }
+        </script>
     </section>
     <div class="footer">
         <h1>//Generated</h1>
