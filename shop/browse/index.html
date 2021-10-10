@@ -54,7 +54,7 @@
         </div>
     </div>
     <section id="denied" style="overflow: hidden">
-        <div class="fullpage">
+        <div class="fullwidth" style="height: 75vh;">
             <div class="textgroup">
                 <h2>You are not allowed to be here!</h2>
                 <p>Enter your super-secret-login-code to get in to the shop.</p>
@@ -77,35 +77,32 @@
             </div>
         </div>
     </section>
-    <section id="page" style="opacity: 0;">
+    <section id="page" style="opacity: 0; display: none;">
         <div class="fullwidth" style="margin-top: 10vh;">
             <div class="textgroup">
                 <h2>Find Your Print</h2>
                 <p>Looking for a specific print?</p>
                 <form>
-                    <div class="halfgroup">
-                        <div class="halfwidth">
-                            <label for="category" class="dropdownContainer">Choose Category</label>
-                            <input type="checkbox" id="category" class="dropdownCheck"
-                                onclick="toggleDropdown('category')">
-                            <ul class="dropdown" id="categoryDrop">
-                                <li><a href="#">Lorem Ipsum</a></li>
-                                <li><a href="#">Lorem Ipsum</a></li>
-                                <li><a href="#">Lorem Ipsum</a></li>
-                                <li><a href="#">Lorem Ipsum</a></li>
-                            </ul>
-                        </div>
-                        <div class="halfwidth">
-                            <label for="category" class="dropdownContainer">Choose Category</label>
-                            <input type="checkbox" id="something" class="dropdownCheck"
-                                onclick="toggleDropdown('something')">
-                            <ul class="dropdown" id="somethingDrop">
-                                <li><a href="#">Lorem Ipsum</a></li>
-                                <li><a href="#">Lorem Ipsum</a></li>
-                                <li><a href="#">Lorem Ipsum</a></li>
-                                <li><a href="#">Lorem Ipsum</a></li>
-                            </ul>
-                        </div>
+                    <div class="halfwidth">
+                        <label for="category" class="dropdownContainer">Choose Category</label>
+                        <input type="checkbox" id="category" class="dropdownCheck" onclick="toggleDropdown('category')">
+                        <ul class="dropdown" id="categoryDrop">
+                            <li><a class="limited">Autumn</a></li>
+                            <li><a>Lorem Ipsum</a></li>
+                            <li><a>Lorem Ipsum</a></li>
+                            <li><a>Lorem Ipsum</a></li>
+                        </ul>
+                    </div>
+                    <div class="halfwidth">
+                        <label for="something" class="dropdownContainer">Choose Category</label>
+                        <input type="checkbox" id="something" class="dropdownCheck"
+                            onclick="toggleDropdown('something')">
+                        <ul class="dropdown" id="somethingDrop">
+                            <li><a>Lorem Ipsum</a></li>
+                            <li><a>Lorem Ipsum</a></li>
+                            <li><a>Lorem Ipsum</a></li>
+                            <li><a>Lorem Ipsum</a></li>
+                        </ul>
                     </div>
                 </form>
             </div>
@@ -113,10 +110,14 @@
         <script>
             function toggleDropdown(elem) {
                 let check = document.getElementById(elem);
+                let label = "label[for='" + elem + "']";
                 if (check.checked == true) {
                     document.getElementById(`${elem}Drop`).style.height = 'auto';
                     let height = document.getElementById(`${elem}Drop`).scrollHeight + 5;
+                    let width = document.querySelector('.dropdownContainer').scrollWidth + 10;
+                    console.log(width);
                     document.getElementById(`${elem}Drop`).style.height = '0';
+                    document.getElementById(`${elem}Drop`).style.width = width + 'px';
                     gsap.to(`#${elem}Drop`, 0.4, { height: `${height}px`, ease: "power2.out" })
                 } else if (check.checked == false) {
                     gsap.to(`#${elem}Drop`, 0.4, { height: 0, ease: "power2.out" })
@@ -258,7 +259,7 @@
             if (granted == 'granted') {
                 if (typeof gsap !== 'undefined') {
                     window.scrollTo(0, 0);
-                    gsap.fromTo('#page', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
+                    gsap.fromTo('#page', 0.8, { y: 25, opacity: 0, delay: 0.5, display: 'block', overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
                     gsap.to('#denied', 0.8, { opacity: 0, height: 0, display: 'none' })
                 } else {
                     document.getElementById('#page').style.opacity = 1;
@@ -273,7 +274,7 @@
                 document.getElementById('password-input').style.boxShadow = '0px 0px 0px 3px green';
                 if (typeof gsap !== 'undefined') {
                     window.scrollTo(0, 0);
-                    gsap.fromTo('#page', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
+                    gsap.fromTo('#page', 0.8, { y: 25, opacity: 0, delay: 0.5, display: 'block', overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
                     gsap.to('#denied', 0.8, { opacity: 0, height: 0, display: 'none' })
                 } else {
                     document.getElementById('#page').style.opacity = 1;
