@@ -110,30 +110,22 @@
         </div>
         <div class="fullpage">
             <div class="textgroup">
-                <h2>This is here to fill space</h2>
-                <p>For now...</p>
+                <h2>Latest Prints</h2>
+                <div id="productsContainer" style="display: none;">
+                    <div class="row">
+                        <div class="item" id="item1"></div>
+                        <div class="item" id="item2"></div>
+                        <div class="item" id="item3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="item" id="item4"></div>
+                        <div class="item" id="item5"></div>
+                        <div class="item" id="item6"></div>
+                    </div>
+                </div>
+                <div id="hiddenTable" style="display: none;"></div>
             </div>
         </div>
-        <script>
-            function toggleDropdown(elem) {
-                let check = document.getElementById(elem);
-                let label = "label[for='" + elem + "']";
-                if (check.checked == true) {
-                    document.getElementById(`${elem}Drop`).style.height = 'auto';
-                    let height = document.getElementById(`${elem}Drop`).scrollHeight + 5;
-                    let width = document.querySelector('.dropdownContainer').scrollWidth + 10;
-                    console.log(width);
-                    document.getElementById(`${elem}Drop`).style.height = '0';
-                    document.getElementById(`${elem}Drop`).style.width = width + 'px';
-                    gsap.to(`#${elem}Drop`, 0.4, { height: `${height}px`, ease: "power2.out" })
-                } else if (check.checked == false) {
-                    gsap.to(`#${elem}Drop`, 0.4, { height: 0, ease: "power2.out" })
-                }
-            }
-            function findPrints() {
-                alert('this will do something some day')
-            }
-        </script>
     </section>
     <div class="footer">
         <h1>//Generated</h1>
@@ -204,6 +196,54 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/TextPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+    <!-- Sortable -->
+    <script src="./js/sortable.js"></script>
+    <script>
+        function toggleDropdown(elem) {
+            let check = document.getElementById(elem);
+            let label = "label[for='" + elem + "']";
+            if (check.checked == true) {
+                document.getElementById(`${elem}Drop`).style.height = 'auto';
+                let height = document.getElementById(`${elem}Drop`).scrollHeight + 5;
+                let width = document.querySelector('.dropdownContainer').scrollWidth + 10;
+                console.log(width);
+                document.getElementById(`${elem}Drop`).style.height = '0';
+                document.getElementById(`${elem}Drop`).style.width = width + 'px';
+                gsap.to(`#${elem}Drop`, 0.4, { height: `${height}px`, ease: "power2.out" })
+            } else if (check.checked == false) {
+                gsap.to(`#${elem}Drop`, 0.4, { height: 0, ease: "power2.out" })
+            }
+        }
+        function findPrints() {
+            alert('this will do something some day')
+        }
+        window.addEventListener("load", function () {
+            // CREATE SORTABLE TABLE WITH GIVEN OBJECT
+            var items = {
+                Price: [49.99, 49.99, 54.99, 54.99, 49.99],
+                Name: ["Leaves", "Leaves II", "Forest", "Forest II", "Animals"],
+                Category: ["Autumn", "Autumn", "Nature", "Nature", "Nature"],
+                Size: ["50in", "50in", "60in", "60in", "50in"],
+                Image: ["seasonal/autumn.png", "seasonal/autumn2.png", "forest.png", "forest2.png", "animals.png"]
+            };
+            createTable("hiddenTable", items, "sortable");
+            let i = 1;
+            while (i < parseInt(document.querySelector('#hiddenTable tbody').childElementCount + 1)) {
+                console.log(i);
+                let item = document.getElementById(`item${i + 1}`)
+                let title = document.createElement('h3');
+                let desc = document.createElement('p');
+                let img = document.createElement('img');
+                title.innerHTML = document.getElementById(`item${i}Name`).innerHTML;
+                item.appendChild(title);
+                desc.innerHTML = document.getElementById(`item${i}Price`).innerHTML + " | " + document.getElementById(`item${i}Size`).innerHTML;
+                item.appendChild(desc);
+                img.src = '../../images/ai/' + document.getElementById(`item${i}Image`).innerHTML;
+                i++;
+            }
+            document.getElementById('productsContainer').style.display = 'flex'
+        });
+    </script>
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <!-- Detect Cache and Load Animations -->
