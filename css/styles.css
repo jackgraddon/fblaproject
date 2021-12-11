@@ -194,6 +194,25 @@ a:hover {
   background-color: var(--neutral);
   border-color: var(--neutral);
 }
+.swiper-slide .btn-primary {
+  margin: 1rem;
+  color: var(--neutral);
+  border-color: var(--neutral);
+  background-color: var(--color);
+}
+.swiper-slide .btn-primary:hover {
+  color: var(--color);
+  background-color: var(--neutral);
+}
+.btn-disabled {
+  color: var(--purple);
+  border-color: var(--purple);
+}
+.btn-disabled:hover {
+  color: var(--neutral);
+  background-color: var(--purple);
+  cursor: default;
+}
 
 /* Navbar */
 .nav {
@@ -362,7 +381,7 @@ div.imgbg {
   width: 100vw;
   height: 80vh;
   background-image: url("../images/backgrounds/winter.gif");
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -793,22 +812,68 @@ hr {
   justify-content: space-evenly;
 }
 #productsContainer .row .item {
+  width: 30vw;
+  margin: 0;
+  padding: 0;
+  /* height: 30vw; */
+  aspect-ratio: 1;
+  background-size: 200%;
+  background-position: center;
+  transition: 800ms ease background-size;
+}
+#productsContainer .row .item:hover {
+  background-size: 150%;
+}
+#productsContainer .row .item div {
+  width: 100%;
+  height: 100%;
   display: flex;
   text-align: center;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30vw;
-  margin: 0;
-  /* height: 30vw; */
-  aspect-ratio: 1;
-  background-size: 200%;
-  background-position: center;
-  transition: 1s ease;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 800ms ease background-color;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation: fadeOutFromFull 800ms ease;
 }
-#productsContainer .row .item:hover {
-  background-size: 150%;
+#productsContainer .row .item:hover div {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  animation: fadeInFromNone 800ms ease;
 }
-#productsContainer .row .item * {
-  width: fit-content;
+
+/* keyframes */
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  0.001% {
+    display: flex;
+    opacity: 0;
+  }
+
+  100% {
+    display: flex;
+    opacity: 1;
+  }
+}
+@keyframes fadeOutFromFull {
+  0% {
+    display: flex;
+    opacity: 1;
+  }
+
+  99.999% {
+    display: flex;
+    opacity: 0;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
 }

@@ -77,7 +77,21 @@
             </div>
         </div>
     </section>
-    <section id="page" style="opacity: 0; display: none;">
+    <section id="page" style="opacity: 0; display: none; margin-top: 10vh;">
+        <div>
+            <div class="textgroup">
+                <h2>Winter Prints are Here!</h2>
+                <p>Looking for something festive for the season? Go check out our brand new Winter Prints for 2021!</p>
+                <a class="btn btn-primary" href="./product/winter/">Shop Winter</a>
+            </div>
+            <div class="textgroup" style="margin-top: 3em;">
+                <h2>Latest Prints</h2>
+                <p>Take a look at our most recent prints</p>
+                <div id="productsContainer" style="display: none;">
+                </div>
+                <div id="hiddenTable" style="display: none;"></div>
+            </div>
+        </div>
         <div class="fullwidth" style="margin: 10vh auto 10vh auto;">
             <div class="textgroup">
                 <h2>Find Your Print</h2>
@@ -95,15 +109,6 @@
                     </div>
                 </form>
                 <!-- <a class="btn btn-primary" onclick="findPrints()">Find Prints</a> -->
-            </div>
-        </div>
-        </div>
-        <div>
-            <div class="textgroup">
-                <h2>Latest Prints</h2>
-                <div id="productsContainer" style="display: none;">
-                </div>
-                <div id="hiddenTable" style="display: none;"></div>
             </div>
         </div>
     </section>
@@ -200,10 +205,11 @@
         window.addEventListener("load", function () {
             // CREATE SORTABLE TABLE WITH GIVEN OBJECT
             var items = {
-                Price: [59.99, 59.99, 49.99, 49.99, 49.99, 59.99],
-                Name: ["Leaves", "Leaves II", "Forest", "Forest II", "Animals", "Winter"],
-                Category: ["Autumn", "Autumn", "Nature", "Nature", "Nature", "Winter"],
-                Image: ["seasonal/autumn.png", "seasonal/autumn2.png", "forest.png", "forest2.png", "animals.png", "seasonal/winter.png"]
+                Price: [59.99, 59.99, 59.99, 59.99, 49.99, 49.99, 49.99],
+                Name: ["Snow", "Winter Wonderland", "Leaves", "Leaves II", "Forest", "Forest II", "Animals"],
+                Category: ["Winter", "Winter", "Autumn", "Autumn", "Nature", "Nature", "Nature"],
+                Image: ["seasonal/snow.png", "seasonal/winterwonderland.png", "seasonal/autumn.png", "seasonal/autumn2.png", "forest.png", "forest2.png", "animals.png"],
+                ReleaseDate: ["December 2021", "December 2021", "August 2021", "August 2021", "July 2021", "July 2021", "July 2021"]
             };
             createTable("hiddenTable", items, "sortable");
             let i = 1, row, j = 1;
@@ -222,12 +228,29 @@
                 item.id = `item${i}`;
                 item.classList.add('item');
                 item.style.backgroundImage = `url('../../images/ai/${document.getElementById(`item${i}Image`).innerHTML}')`;
-                let title = document.createElement('h3');
+                let container = document.createElement('div');
+                let title = document.createElement('h2');
                 let desc = document.createElement('p');
+                let category = document.createElement('p');
+                let releaseDate = document.createElement('h6');
+                let buyBtn = document.createElement('a');
+                releaseDate.innerHTML = document.getElementById(`item${i}ReleaseDate`).innerHTML;
+                releaseDate.style.margin = 0;
+                releaseDate.style.fontSize = "10pt";
+                container.appendChild(releaseDate);
+                category.innerHTML = document.getElementById(`item${i}Category`).innerHTML;
+                category.style.margin = 0;
+                category.style.fontSize = "14pt";
+                container.appendChild(category);
                 title.innerHTML = document.getElementById(`item${i}Name`).innerHTML;
-                item.appendChild(title);
-                desc.innerHTML = document.getElementById(`item${i}Price`).innerHTML + " | " + document.getElementById(`item${i}Category`).innerHTML;
-                item.appendChild(desc);
+                container.appendChild(title);
+                desc.innerHTML = document.getElementById(`item${i}Price`).innerHTML;
+                container.appendChild(desc);
+                buyBtn.href = `./product/${document.getElementById(`item${i}Category`).innerHTML.toLowerCase().replace(" ", "")}/${document.getElementById(`item${i}Name`).innerHTML.toLowerCase().replace(" ", "")}/`;
+                buyBtn.innerHTML = "Buy Now";
+                buyBtn.classList.add('btn', 'btn-primary')
+                container.appendChild(buyBtn)
+                item.appendChild(container);
                 row.appendChild(item);
                 i++;
             }
