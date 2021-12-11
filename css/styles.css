@@ -358,24 +358,15 @@ div.fullpage {
   justify-content: center;
   align-items: center;
 }
-div.fullpage .videocontainer {
-  position: absolute;
+div.imgbg {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -9 !important;
-}
-@media screen and (max-width: 760px) {
-  div.fullpage .videocontainer {
-    height: fit-content;
-    margin-bottom: 5vh;
-  }
-}
-.videocontainer #generationBG {
-  width: 100vw;
-  height: auto;
-  object-fit: cover;
-  z-index: -10 !important;
+  height: 80vh;
+  background-image: url("../images/backgrounds/winter.gif");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 760px) {
@@ -383,6 +374,11 @@ div.fullpage .videocontainer {
     margin-top: 3rem;
     flex-direction: column;
     height: fit-content;
+  }
+
+  div.imgbg {
+    height: fit-content;
+    margin-bottom: 3em;
   }
 }
 
