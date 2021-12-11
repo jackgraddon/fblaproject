@@ -365,11 +365,11 @@ div.fullpage .videocontainer {
   overflow: hidden;
   z-index: -9 !important;
 }
-/* @media screen and (max-width: 760px) {
+@media screen and (max-width: 760px) {
   div.fullpage .videocontainer {
-    display: none;
+    height: fit-content;
   }
-} */
+}
 .videocontainer #generationBG {
   width: 100vw;
   height: auto;
