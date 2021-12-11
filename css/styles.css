@@ -368,6 +368,7 @@ div.fullpage .videocontainer {
 @media screen and (max-width: 760px) {
   div.fullpage .videocontainer {
     height: fit-content;
+    margin-bottom: 5vh;
   }
 }
 .videocontainer #generationBG {
