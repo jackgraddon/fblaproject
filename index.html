@@ -83,9 +83,7 @@
     </div>
     <div class="fullpage" id="land2" style="opacity: 0;">
         <div class="videocontainer">
-            <video autoplay muted loop muted id="generationBG">
-                <source src="./videos/backgrounds/forest.mp4" type="video/mp4">
-            </video>
+            <img id="generationBG" src="./images/backgrounds/winter.gif" style="object-position: bottom;">
         </div>
         <div class="textgroup bgvid">
             <h1>What Are AI Generated Images?</h1>
@@ -135,14 +133,11 @@
                 window.location.href = link;
             }, 500);
         }
-        // Set playback rate for background video and play video
-        document.getElementById('generationBG').playbackRate = "0.25";
-        document.getElementById('generationBG').play();
         // Test for Safari
         var ua = navigator.userAgent.toLowerCase();
         if (ua.indexOf('safari') != -1) {
             if (ua.indexOf('chrome') > -1) {
-                // Chrome
+                // Chrome or Edge
             } else {
                 document.getElementById('landing').classList.add('safari');
             }
