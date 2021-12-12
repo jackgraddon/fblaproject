@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Shop | Generated</title>
+    <link href="../../../../../images/assets/logo/icon.png" rel="icon">
+    <meta content="Shop" name="og:title">
+    <meta content="Generated" name="og:site_name">
+    <meta content="../../../../../images/assets/promos/winter/ogimage.png" name="og:image">
+    <meta content="website" name="og:type">
+    <meta content="https://generatedprints.com/" name="og:url">
+    <meta content="en_US" name="og:locale">
+
+    <!-- PWA -->
+    <link href="../../../../../images/assets/logo/generated.png" rel="apple-touch-icon">
+    <link rel="manifest" href="../../../../../manifest.json">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/82aa41a567.js" crossorgin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/82aa41a567.js" crossorgin="anonymous"></script>
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- Personal CSS -->
+    <link href="../../../../../css/styles.css" rel="stylesheet">
+</head>
+
+<body style="opacity: 0;">
+    <div class="nav">
+        <a onclick="linkClicked('../../../../../')" id="homelinkM">
+            <h1>//Generated</h1>
+        </a>
+        <div class="d-flex flex-row">
+            <a onclick="linkClicked('../../../../../about/')" id="aboutlink" class="pageLink">
+                <h5>About</h5>
+            </a>
+            <a onclick="linkClicked('../../../../../contact/')" id="contactlink" class="pageLink">
+                <h5>Contact</h5>
+            </a>
+            <a onclick="linkClicked('../../../../../../')" id="homelink">
+                <h1>//Generated</h1>
+            </a>
+            <a onclick="linkClicked('../../../../../socials/')" id="socialslink" class="pageLink">
+                <h5>Socials</h5>
+            </a>
+            <a onclick="linkClicked('../../../../../shop/')" id="shoplink" class="pageLink active">
+                <h5>Shop</h5>
+            </a>
+        </div>
+    </div>
+
+    <div class="fullwidth" style="margin-top: 10vh;">
+        <div class="textgroup">
+            <h1 id="name">Forest II</h1>
+            <p id="price">49.99</p>
+        </div>
+    </div>
+    <div class="swiper">
+        <div class="swiper-pagination"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src='forest2.png'>
+            </div>
+        </div>
+    </div>
+    <div class="fullwidth">
+        <div class="textgroup">
+            <div class="printSize">
+                <p>Choose your size:</p>
+                <div id="options">
+                    <div id="small" class="clicked">
+                    </div>
+                    <div id="medium">
+                    </div>
+                    <div id="large">
+                    </div>
+                </div>
+                <p id="size">36in</p>
+            </div>
+            <span>
+                <a class="btn btn-primary">Buy Now</a>
+                <a class="btn btn-primary" onclick="javascript:addToCart()">Add to Cart</a>
+            </span>
+            <script>
+                // Size Selection
+                let selected = document.getElementById('small');
+                let size = document.getElementById('size');
+                document.getElementById('small').addEventListener('click', function () {
+                    selected.classList.remove('clicked');
+                    this.classList.add('clicked');
+                    size.innerHTML = '36in';
+                    selected = this;
+                })
+                document.getElementById('medium').addEventListener('click', function () {
+                    selected.classList.remove('clicked');
+                    this.classList.add('clicked');
+                    size.innerHTML = '42in';
+                    selected = this;
+                })
+                document.getElementById('large').addEventListener('click', function () {
+                    selected.classList.remove('clicked');
+                    this.classList.add('clicked');
+                    size.innerHTML = '54in';
+                    selected = this;
+                })
+
+                // Adding to Cart
+                let cartInfo = JSON.parse(localStorage.getItem('cart'));
+                console.log(cartInfo);
+                if (cartInfo == null) {
+                    fetch("../../../../../cart.json")
+                        .then(response => {
+                            return response.json();
+                        })
+                        .then(data => cartInfo = data);
+                }
+                function addToCart() {
+                    cartInfo.cart++;
+                    let i = cartInfo.cart;
+                    let item = {
+                        "name": document.getElementById('name').innerHTML,
+                        "size": size.innerHTML,
+                        "price": document.getElementById('price').innerHTML
+                    }
+                    cartInfo.items[i] = item;
+                    localStorage.setItem('cart', JSON.stringify(cartInfo));
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h1>//Generated</h1>
+        <div class="links">
+            <a onclick="linkClicked('../../../../../about/')" id="aboutlink">
+                <h5>About</h5>
+            </a>
+            <a onclick="linkClicked('../../../../../contact/')" id="contactlink">
+                <h5>Contact</h5>
+            </a>
+            <a onclick="linkClicked('../../../../../socials/')" id="socialslink">
+                <h5>Socials</h5>
+            </a>
+            <a onclick="linkClicked('../../../../../shop/')" id="shoplink">
+                <h5>Shop</h5>
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        // Disable Right Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        // Visual Effects when nav link clicked
+        function linkClicked(link) {
+            gsap.to('body', 0.5, { opacity: 0, ease: "power2.inOut" });
+            setTimeout(() => {
+                window.location.href = link;
+            }, 2000);
+        }
+        // Inactivity Check
+        // var timeoutID;
+        // function setup() {
+        //     this.addEventListener("mousemove", resetTimer, false);
+        //     this.addEventListener("mousedown", resetTimer, false);
+        //     this.addEventListener("keydown", resetTimer, false);
+        //     this.addEventListener("DOMMouseScroll", resetTimer, false);
+        //     this.addEventListener("mousewheel", resetTimer, false);
+        //     this.addEventListener("touchmove", resetTimer, false);
+        //     this.addEventListener("MSPointerMove", resetTimer, false);
+        //     startTimer();
+        // }
+        // setup();
+        // function startTimer() {
+        //     timeoutID = window.setTimeout(goInactive, 20000);
+        // }
+        // function resetTimer(e) {
+        //     window.clearTimeout(timeoutID);
+        //     goActive();
+        // }
+        // function goInactive() {
+        //     if (window.innerWidth <= 760) document.getElementById('howToMobile').style.opacity = 1;
+        //     else if (window.innerWidth > 760) document.getElementById('howToComputer').style.opacity = 1;
+        // }
+        // function goActive() {
+        //     if (window.innerWidth <= 760) document.getElementById('howToMobile').style.opacity = 0;
+        //     else if (window.innerWidth > 760) document.getElementById('howToComputer').style.opacity = 0;
+        //     startTimer();
+        // }
+    </script>
+    <!-- Bootstrap JS Bundle (bootstrap.js + popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <!-- jsCookie -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"
+        integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+    <!-- Swiper -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- Detect Cache and Load Animations -->
+    <script>
+        // If the page is loaded from cache, refresh it to show up to date content.
+        (function () {
+            window.onpageshow = function (event) {
+                if (event.persisted) {
+                    window.location.reload();
+                }
+            };
+        })();
+
+        // Onload effects
+        window.onload = function () {
+            if (typeof gsap !== 'undefined') {
+                window.scrollTo(0, 0);
+                gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
+            } else {
+                document.querySelector('body').style.opacity = 1;
+            }
+        };
+    </script>
+    <script>
+        let swiper = new Swiper();
+        function setSwiper() {
+            if (window.innerWidth <= 760) {
+                swiper = new Swiper('.swiper', {
+                    effect: "cards",
+                    cardsEffect: {
+                        slideShadows: true
+                    },
+                    grabCursor: true,
+                    keyboard: {
+                        enabled: true,
+                        onlyInViewport: true,
+                    },
+                });
+            } else {
+                swiper = new Swiper(".swiper", {
+                    slidesPerView: "auto",
+                    centeredSlides: true,
+                    spaceBetween: 30,
+                    keyboard: {
+                        enabled: true,
+                        onlyInViewport: true,
+                    },
+                });
+            }
+        }
+        setSwiper();
+        window.onresize = setSwiper();
+    </script>
+    <!-- Crypto JS -->
+    <script src="../../../../../js/crypto-js.js"></script>
+    <script type="text/javascript">
+        function login(input) {
+            var bytes = CryptoJS.AES.decrypt("U2FsdGVkX1+ZRMrzeqBMo3mrKmhnGpSA5VYjUZ40/Es=", '2021');
+            var secretcode = bytes.toString(CryptoJS.enc.Utf8);
+            if (input == secretcode) {
+                document.getElementById('password-input').style.boxShadow = '0px 0px 0px 3px green';
+                setTimeout(() => { linkClicked('./browse/') }, 500);
+                Cookies.set('granted', 'U2FsdGVkX1+NdEwrA0U8vRXSjXkrSAHjxeS5D9/0ubk=');
+            } else {
+                document.getElementById('password-input').style.boxShadow = '0px 0px 0px 3px red';
+                gsap.timeline({ repeat: 2 }).fromTo('#password-input', 0.05, { x: 0, y: 0 }, { x: -300, y: 0 })
+                    .to('#password-input', 0.05, { x: 300, y: 0 })
+                    .to('#password-input', 0.05, { x: 0, y: 0 });
+                Cookies.set('granted', 'U2FsdGVkX1/KiQnsdNyglOP2xpZJhgzXMMs+ESunJhw=');
+            }
+        }
+    </script>
+</body>
+
+</html>

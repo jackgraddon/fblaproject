@@ -84,31 +84,32 @@
                 <p>Looking for something festive for the season? Go check out our brand new Winter Prints for 2021!</p>
                 <a class="btn btn-primary" href="./product/winter/">Shop Winter</a>
             </div>
+            <div class="fullwidth" style="margin: 10vh auto 10vh auto;">
+                <div class="textgroup">
+                    <h2>Find Your Print</h2>
+                    <p>Looking for a specific print?</p>
+                    <form style="margin-bottom: 10px;">
+                        <div class="halfwidth">
+                            <label for="category" class="dropdownContainer">Choose Category</label>
+                            <input type="checkbox" id="category" class="dropdownCheck"
+                                onclick="toggleDropdown('category')">
+                            <ul class="dropdown" id="categoryDrop">
+                                <li onclick="window.location.href='./product/winter/'" class="limited">Winter</li>
+                                <li onclick="window.location.href='./product/autumn/'">Autumn</li>
+                                <li onclick="window.location.href='./product/abstract/'">Abstract</li>
+                                <li onclick="window.location.href='./product/nature/'">Nature</li>
+                            </ul>
+                        </div>
+                    </form>
+                    <!-- <a class="btn btn-primary" onclick="findPrints()">Find Prints</a> -->
+                </div>
+            </div>
             <div class="textgroup" style="margin-top: 3em;">
                 <h2>Latest Prints</h2>
                 <p>Take a look at our most recent prints</p>
                 <div id="productsContainer" style="display: none;">
                 </div>
                 <div id="hiddenTable" style="display: none;"></div>
-            </div>
-        </div>
-        <div class="fullwidth" style="margin: 10vh auto 10vh auto;">
-            <div class="textgroup">
-                <h2>Find Your Print</h2>
-                <p>Looking for a specific print?</p>
-                <form style="margin-bottom: 10px;">
-                    <div class="halfwidth">
-                        <label for="category" class="dropdownContainer">Choose Category</label>
-                        <input type="checkbox" id="category" class="dropdownCheck" onclick="toggleDropdown('category')">
-                        <ul class="dropdown" id="categoryDrop">
-                            <li><a class="limited" href="./limited/">Autumn</a></li>
-                            <li><a href="./#abstract/">Abstract</a></li>
-                            <li><a href="./#nature/">Nature</a></li>
-                            <li><a>Other</a></li>
-                        </ul>
-                    </div>
-                </form>
-                <!-- <a class="btn btn-primary" onclick="findPrints()">Find Prints</a> -->
             </div>
         </div>
     </section>
