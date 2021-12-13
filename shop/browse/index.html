@@ -202,11 +202,11 @@
         window.addEventListener("load", function () {
             // CREATE SORTABLE TABLE WITH GIVEN OBJECT
             var items = {
-                Price: [59.99, 59.99, 59.99, 59.99, 49.99, 49.99, 49.99],
-                Name: ["Snow", "Winter Wonderland", "Leaves", "Leaves II", "Forest", "Forest II", "Animals"],
-                Category: ["Winter", "Winter", "Autumn", "Autumn", "Nature", "Nature", "Nature"],
-                Image: ["seasonal/snow.png", "seasonal/winterwonderland.png", "seasonal/autumn.png", "seasonal/autumn2.png", "forest.png", "forest2.png", "animals.png"],
-                ReleaseDate: ["December 2021", "December 2021", "August 2021", "August 2021", "July 2021", "July 2021", "July 2021"]
+                Price: [59.99, 59.99, 59.99, 59.99, 49.99, 49.99, 49.99, 49.99],
+                Name: ["Snow", "Winter Wonderland", "Leaves", "Leaves II", "Forest", "Forest II", "Animals", "Nothing"],
+                Category: ["Winter", "Winter", "Autumn", "Autumn", "Nature", "Nature", "Nature", "Abstract"],
+                Image: ["seasonal/snow.png", "seasonal/winterwonderland.png", "seasonal/autumn.png", "seasonal/autumn2.png", "forest.png", "forest2.png", "animals.png", "nothing.png"],
+                ReleaseDate: ["December 2021", "December 2021", "August 2021", "August 2021", "July 2021", "July 2021", "July 2021", "July 2021"]
             };
             createTable("hiddenTable", items, "sortable");
             let i = 1, row, j = 1;
