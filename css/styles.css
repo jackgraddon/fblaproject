@@ -25,6 +25,7 @@
   --purple: #432534;
   --swiper-theme-color: var(--color);
 } */
+
 /* Winter Themes */
 :root {
   --neutral: #1d394a;
@@ -648,26 +649,19 @@ form label.dropdownContainer:hover {
   color: var(--neutral);
   transition: 300ms ease;
   cursor: pointer;
+  text-decoration: none;
+  margin: 0;
+  color: var(--neutral);
+  font-family: Comfortaa;
+  transition: 300ms ease;
 }
 
 .dropdown li:last-child {
   border-bottom: var(--color) 5px solid;
 }
 
-.dropdown li a {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  color: var(--neutral);
-  font-family: Comfortaa;
-  transition: 300ms ease;
-}
-
 .dropdown li:hover {
   background-color: var(--neutral);
-}
-
-.dropdown li:hover a {
   color: var(--color);
 }
 
@@ -933,4 +927,23 @@ hr {
     display: none;
     opacity: 0;
   }
+}
+
+/* Cart */
+#cart {
+  width: 80vw;
+}
+#cart tr {
+  border-bottom: 1px solid var(--color);
+}
+#cart tr:first-of-type {
+  font-size: 12pt;
+  font-weight: bold;
+}
+#cart tr td {
+  padding: 2rem;
+  text-align: left;
+}
+#cart tr td:last-of-type {
+  text-align: right;
 }

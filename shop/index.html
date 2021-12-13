@@ -56,9 +56,10 @@
 
     <div class="fullwidth" style="margin-top: 10vh;">
         <div class="textgroup">
-            <h1>Coming Soon</h1>
-            <p>You're a bit early! Stop by at a later date to see the full catalog of prints! For now, check out a
-                preview of our images below.</p>
+            <h1>Looking for a Print?</h1>
+            <p>You've come to the right place. Generated Prints uses AI to create unique works of art usingn <a
+                    onclick="linkClicked('../about/#vqgan')">VQGAN</a> and <a
+                    onclick="linkClicked('../about/#clip')">CLIP</a>. <br>You can check out a few examples below!</p>
         </div>
     </div>
     <div class="swiper">
@@ -66,19 +67,23 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="../images/ai/animals.png">
-                <p>Category: "Animals"</p>
+                <p>Animals | Nature</p>
             </div>
             <div class="swiper-slide">
                 <img src='../images/ai/forest2.png'>
-                <p>Category: "Forest"</p>
+                <p>Forest | Nature</p>
             </div>
             <div class="swiper-slide">
                 <img src='../images/ai/nothing.png'>
-                <p>Category: "Nothing"</p>
+                <p>Nothing | Abstract</p>
             </div>
             <div class="swiper-slide">
                 <img src='../images/ai/seasonal/autumn.png'>
-                <p>Category: "Autumn"</p>
+                <p>Leaves | Autumn '21</p>
+            </div>
+            <div class="swiper-slide">
+                <img src='../images/ai/seasonal/snow.png'>
+                <p>Snow | Winter '21</p>
             </div>
         </div>
     </div>
@@ -88,23 +93,13 @@
     </div>
     <div class="fullwidth" style="margin-bottom: 4em;">
         <div class="textgroup">
-            <h3>Supposed to be here?</h3>
-            <p>Enter your super-secret-login-code to get in to the shop.</p>
-            <form id="password">
-                <div class="mb-3">
-                    <input class="form-input" type="password" id="password-input" autocomplete="off"
-                        placeholder="Don't forget the three numbers on the back!"></input>
-                </div>
-                <a onclick="login(document.getElementById('password-input').value);" class="btn btn-primary">Enter</a>
-            </form>
-            <script>
-                document.getElementById('password-input').addEventListener("keydown", function (e) {
-                    if (e.key == 'Enter') {
-                        e.preventDefault();
-                        login(document.getElementById('password-input').value);
-                    } else return;
-                }, false);
-            </script>
+            <h3>Ready to See the Sights?</h3>
+            <p>New visitor? Check out our shop below! Returning visitor? Head back to your cart to continue where you
+                left off.</p>
+            <span>
+                <a class="btn btn-primary" onclick="linkClicked('./browse/')">Browse Our Shop</a>
+                <a class="btn btn-primary" onclick="linkClicked('./cart/')">View Your Cart</a>
+            </span>
         </div>
     </div>
 

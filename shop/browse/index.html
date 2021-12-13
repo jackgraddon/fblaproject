@@ -53,7 +53,7 @@
             </a>
         </div>
     </div>
-    <section id="denied" style="overflow: hidden">
+    <!-- <section id="denied" style="overflow: hidden">
         <div class="fullwidth" style="height: 75vh;">
             <div class="textgroup">
                 <h2>You are not allowed to be here!</h2>
@@ -76,43 +76,42 @@
                 </script>
             </div>
         </div>
-    </section>
-    <section id="page" style="opacity: 0; display: none; margin-top: 10vh;">
-        <div>
-            <div class="textgroup">
-                <h2>Winter Prints are Here!</h2>
-                <p>Looking for something festive for the season? Go check out our brand new Winter Prints for 2021!</p>
-                <a class="btn btn-primary" href="./product/winter/">Shop Winter</a>
-            </div>
-            <div class="fullwidth" style="margin: 10vh auto 10vh auto;">
-                <div class="textgroup">
-                    <h2>Find Your Print</h2>
-                    <p>Looking for a specific print?</p>
-                    <form style="margin-bottom: 10px;">
-                        <div class="halfwidth">
-                            <label for="category" class="dropdownContainer">Choose Category</label>
-                            <input type="checkbox" id="category" class="dropdownCheck"
-                                onclick="toggleDropdown('category')">
-                            <ul class="dropdown" id="categoryDrop">
-                                <li onclick="window.location.href='./product/winter/'" class="limited">Winter</li>
-                                <li onclick="window.location.href='./product/autumn/'">Autumn</li>
-                                <li onclick="window.location.href='./product/abstract/'">Abstract</li>
-                                <li onclick="window.location.href='./product/nature/'">Nature</li>
-                            </ul>
-                        </div>
-                    </form>
-                    <!-- <a class="btn btn-primary" onclick="findPrints()">Find Prints</a> -->
+    </section> -->
+    <!-- <section id="page" style="opacity: 0; display: none; margin-top: 10vh;"> -->
+    <div style=" margin-top: 10vh;"">
+        <div class=" textgroup">
+        <h2>Winter Prints are Here!</h2>
+        <p>Looking for something festive for the season? Go check out our brand new Winter Prints for 2021!</p>
+        <a class="btn btn-primary" onclick="linkClicked('./product/winter/')">Shop Winter</a>
+    </div>
+    <div class="fullwidth" style="margin: 10vh auto 10vh auto;">
+        <div class="textgroup">
+            <h2>Find Your Print</h2>
+            <p>Looking for a specific print?</p>
+            <form style="margin-bottom: 10px;">
+                <div class="halfwidth">
+                    <label for="category" class="dropdownContainer">Choose Category</label>
+                    <input type="checkbox" id="category" class="dropdownCheck" onclick="toggleDropdown('category')">
+                    <ul class="dropdown" id="categoryDrop">
+                        <li onclick="linkClicked('./product/winter/')" class="limited">Winter</li>
+                        <li onclick="linkClicked('./product/autumn/')">Autumn</li>
+                        <li onclick="linkClicked('./product/abstract/')">Abstract</li>
+                        <li onclick="linkClicked('./product/nature/')">Nature</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="textgroup" style="margin-top: 3em;">
-                <h2>Latest Prints</h2>
-                <p>Take a look at our most recent prints</p>
-                <div id="productsContainer" style="display: none;">
-                </div>
-                <div id="hiddenTable" style="display: none;"></div>
-            </div>
+            </form>
+            <!-- <a class="btn btn-primary" onclick="findPrints()">Find Prints</a> -->
         </div>
-    </section>
+    </div>
+    <div class="textgroup" style="margin-top: 3em;">
+        <h2>Latest Prints</h2>
+        <p>Take a look at our most recent prints</p>
+        <div id="productsContainer" style="display: none;">
+        </div>
+        <div id="hiddenTable" style="display: none;"></div>
+    </div>
+    </div>
+    <!-- </section> -->
     <div class="footer">
         <h1>//Generated</h1>
         <div class="links">
@@ -200,9 +199,6 @@
                 gsap.to(`#${elem}Drop`, 0.4, { height: 0, ease: "power2.out" })
             }
         }
-        function findPrints() {
-            alert('this will do something some day')
-        }
         window.addEventListener("load", function () {
             // CREATE SORTABLE TABLE WITH GIVEN OBJECT
             var items = {
@@ -247,7 +243,8 @@
                 container.appendChild(title);
                 desc.innerHTML = document.getElementById(`item${i}Price`).innerHTML;
                 container.appendChild(desc);
-                buyBtn.href = `./product/${document.getElementById(`item${i}Category`).innerHTML.toLowerCase().replace(" ", "")}/${document.getElementById(`item${i}Name`).innerHTML.toLowerCase().replace(" ", "")}/`;
+                let url = `./product/${document.getElementById(`item${i}Category`).innerHTML.toLowerCase().replace(" ", "")}/${document.getElementById(`item${i}Name`).innerHTML.toLowerCase().replace(" ", "")}/`;
+                buyBtn.onclick = function clicked() { linkClicked(url) };
                 buyBtn.innerHTML = "Buy Now";
                 buyBtn.classList.add('btn', 'btn-primary')
                 container.appendChild(buyBtn)
@@ -272,14 +269,14 @@
         })();
 
         // Onload effects
-        // window.onload = function () {
-        //     if (typeof gsap !== 'undefined') {
-        //         window.scrollTo(0, 0);
-        //         gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
-        //     } else {
-        //         document.querySelector('body').style.opacity = 1;
-        //     }
-        // };
+        window.onload = function () {
+            if (typeof gsap !== 'undefined') {
+                window.scrollTo(0, 0);
+                gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
+            } else {
+                document.querySelector('body').style.opacity = 1;
+            }
+        };
     </script>
     <script>
         let swiper = new Swiper();
@@ -312,10 +309,10 @@
         window.onresize = setSwiper();
     </script>
     <!-- jsCookie -->
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> -->
     <!-- Crypto JS -->
-    <script src="../../js/crypto-js.js"></script>
-    <script type="text/javascript">
+    <!-- <script src="../../js/crypto-js.js"></script> -->
+    <!-- <script type="text/javascript">
         // Check if allowed
         if (typeof Cookies.get('granted') != 'undefined') {
             let granted = CryptoJS.AES.decrypt(Cookies.get('granted'), '2021').toString(CryptoJS.enc.Utf8);
@@ -352,7 +349,7 @@
                 Cookies.set('granted', 'U2FsdGVkX1/KiQnsdNyglOP2xpZJhgzXMMs+ESunJhw=');
             }
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
