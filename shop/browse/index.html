@@ -282,48 +282,6 @@
         setSwiper();
         window.onresize = setSwiper();
     </script>
-    <!-- jsCookie -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> -->
-    <!-- Crypto JS -->
-    <!-- <script src="../../js/crypto-js.js"></script> -->
-    <!-- <script type="text/javascript">
-        // Check if allowed
-        if (typeof Cookies.get('granted') != 'undefined') {
-            let granted = CryptoJS.AES.decrypt(Cookies.get('granted'), '2021').toString(CryptoJS.enc.Utf8);
-            granted = 'granted';
-            if (granted == 'granted') {
-                if (typeof gsap !== 'undefined') {
-                    window.scrollTo(0, 0);
-                    gsap.fromTo('#page', 0.8, { y: 25, opacity: 0, delay: 0.5, display: 'block', overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
-                    gsap.to('#denied', 0.8, { opacity: 0, height: 0, display: 'none' })
-                } else {
-                    document.getElementById('#page').style.opacity = 1;
-                }
-            }
-        }
-        // Login window
-        function login(input) {
-            var bytes = CryptoJS.AES.decrypt("U2FsdGVkX1+ZRMrzeqBMo3mrKmhnGpSA5VYjUZ40/Es=", '2021');
-            var secretcode = bytes.toString(CryptoJS.enc.Utf8);
-            if (input == secretcode) {
-                document.getElementById('password-input').style.boxShadow = '0px 0px 0px 3px green';
-                if (typeof gsap !== 'undefined') {
-                    window.scrollTo(0, 0);
-                    gsap.fromTo('#page', 0.8, { y: 25, opacity: 0, delay: 0.5, display: 'block', overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
-                    gsap.to('#denied', 0.8, { opacity: 0, height: 0, display: 'none' })
-                } else {
-                    document.getElementById('#page').style.opacity = 1;
-                }
-                Cookies.set('granted', 'U2FsdGVkX1+NdEwrA0U8vRXSjXkrSAHjxeS5D9/0ubk=');
-            } else {
-                document.getElementById('password-input').style.boxShadow = '0px 0px 0px 3px red';
-                gsap.timeline({ repeat: 2 }).fromTo('#password-input', 0.05, { x: 0, y: 0 }, { x: -300, y: 0 })
-                    .to('#password-input', 0.05, { x: 300, y: 0 })
-                    .to('#password-input', 0.05, { x: 0, y: 0 });
-                Cookies.set('granted', 'U2FsdGVkX1/KiQnsdNyglOP2xpZJhgzXMMs+ESunJhw=');
-            }
-        }
-    </script> -->
 </body>
 
 </html>
