@@ -543,12 +543,12 @@ img.framed {
 
 /* Ad */
 .ad {
-  width: 50%;
+  width: fit-content;
   height: 3rem;
   padding: 0.5rem;
 
-  position: absolute;
-  left: 25%;
+  position: relative;
+  margin: 2rem auto;
 
   border: 5px solid var(--purple);
   background-color: var(--tan);
@@ -561,10 +561,6 @@ img.framed {
     width: 90%;
     height: fit-content;
     padding: 0.5rem;
-
-    position: relative !important;
-    margin: 2rem auto;
-    left: 0;
   }
 }
 @keyframes flash {
