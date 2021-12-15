@@ -197,11 +197,13 @@
 
         // Onload effects
         window.onload = function () {
-            if (typeof gsap !== 'undefined') {
+            try {
                 window.scrollTo(0, 0);
                 gsap.fromTo('body', 0.8, { y: 25, opacity: 0, delay: 0.5, overflowY: 'hidden', ease: "power2.out" }, { delay: 0.5, overflowY: 'visible', y: 0, opacity: 1 });
-            } else {
+            } catch (error) {
+                console.log(error);
                 document.querySelector('body').style.opacity = 1;
+                document.querySelector('body').style.display = 'block';
             }
         };
     </script>
