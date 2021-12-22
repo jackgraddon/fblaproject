@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/jackgraddon/fblaproject/issues"
   },
-  "homepage": "https://github.com/jackgraddon/fblaproject#readme"
+  "homepage": "https://github.com/jackgraddon/fblaproject#readme",
+  "dependencies": {
+    "jsdom": "^19.0.0"
+  }
 }
