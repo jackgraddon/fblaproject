@@ -70,9 +70,71 @@
                 <h2>Here's what you've got.</h2>
                 <table id="cart">
                 </table>
+                <form class="buyForm" style="margin-top: 5em;">
+                    <h3>Shipping and Billing Address</h3>
+                    <label for="fname">Full Name</label>
+                    <input class="form-input" type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                    <div class="input-group">
+                        <span> <label for="adr">Address</label>
+                            <input class="form-input" type="text" id="adr" name="address"
+                                placeholder="542 W. 15th Street">
+                        </span>
+                        <span> <label for="city">City</label>
+                            <input class="form-input" type="text" id="city" name="city" placeholder="New York">
+                        </span>
+                        <span>
+                            <label for="state">State</label>
+                            <input class="form-input" type="text" id="state" name="state" placeholder="NY">
+                        </span>
+                        <span>
+                            <label for="zip">Zip</label>
+                            <input class="form-input" type="text" id="zip" name="zip" placeholder="10001">
+                        </span>
+                    </div>
+                    <br>
+                    <h3>Payment</h3>
+                    <div class="input-group">
+                        <span>
+                            <label for="cname">Name on Card</label>
+                            <input class="form-input" type="text" id="cname" name="cardname"
+                                placeholder="John More Doe">
+                        </span>
+                        <span>
+                            <label for="ccnum">Credit card number</label>
+                            <input class="form-input" type="text" id="ccnum" name="cardnumber"
+                                placeholder="1111-2222-3333-4444">
+                        </span>
+                    </div>
+                    <div class="input-group">
+                        <span>
+                            <label for="expmonth">Exp Month</label>
+                            <input class="form-input" type="text" id="expmonth" name="expmonth" placeholder="September">
+                        </span>
+                        <span>
+                            <label for="expyear">Exp Year</label>
+                            <input class="form-input" type="text" id="expyear" name="expyear" placeholder="2077">
+                        </span>
+                        <span>
+                            <label for="cvv">CVV</label>
+                            <input class="form-input" type="text" id="cvv" name="cvv" placeholder="352">
+                        </span>
+                    </div>
+                </form>
+                <script>
+                    function buyCart() {
+
+                        let street = document.getElementById('adr');
+                        let city = document.getElementById('city');
+                        let state = document.getElementById('state');
+                        let zip = document.getElementById('zip');
+                        let address = street.value + " " + city.value + ', ' + state.value + ' ' + zip.value;
+
+                        window.location.href = `./complete/?address=${address}`;
+                    };
+                </script>
                 <span style="margin-top: 5em;">
                     <a onclick="localStorage.clear(); window.location.reload()" class="btn btn-primary">Clear Cart</a>
-                    <a class="btn btn-disabled">Checkout</a>
+                    <a class="btn btn-primary" onclick="buyCart()">Checkout</a>
                 </span>
             </div>
         </div>

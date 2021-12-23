@@ -1040,14 +1040,14 @@ hr {
 .textContainer * {
   padding: 0.2em;
 }
-form.buyNowForm div.input-group {
+form.buyForm div.input-group {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0 !important;
 }
 
-form.buyNowForm div.input-group span {
+form.buyForm div.input-group span {
   flex-grow: 1;
   padding: 5px;
 }

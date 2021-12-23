@@ -46,7 +46,7 @@ buyNowBtn.classList.add("btn");
 buyNowBtn.classList.add("btn-primary");
 buyNowBtn.innerHTML = "Buy Now";
 
-let form = document.querySelector("form.buyNowForm");
+let form = document.querySelector("form.buyForm");
 
 function closeBuy() {
   window.removeEventListener("scroll", scroller);
