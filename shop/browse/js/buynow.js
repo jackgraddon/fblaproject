@@ -48,8 +48,6 @@ let completePurchase = function (address, price, size) {
   window.location.href = `../../../../cart/complete/?item=${slug}&price=${price}&size=${size}&address=${address}`;
 };
 
-let form = document.querySelector("form.buyForm");
-
 function closeBuy() {
   window.removeEventListener("scroll", scroller);
   gsap.fromTo(
@@ -66,6 +64,7 @@ function closeBuy() {
   );
   setTimeout(() => {
     body.removeChild(meta);
+    body.removeChild(wrapper);
     body.removeChild(modal);
   }, 500);
   body.removeEventListener("keypress", closeBuyKey);
@@ -78,7 +77,6 @@ var closeBuyKey = function (e) {
 };
 function setup() {
   body.appendChild(jqsrc);
-  console.log("loaded?");
 }
 
 window.onload = setup();
