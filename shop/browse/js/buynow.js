@@ -84,6 +84,10 @@ function setup() {
 window.onload = setup();
 
 function buyNow() {
+  window.scroll({
+    top: 0,
+    behavior: "smooth",
+  });
   scroller();
   body.appendChild(meta);
   body.appendChild(wrapper);
