@@ -32,19 +32,21 @@ container.appendChild(mheader);
 container.appendChild(mbody);
 
 let scroller = function () {
-  topPad = window.scrollY + 100;
-  modal.style.top = topPad + "px";
+  if (window.innerHeight > window.innerWidth) {
+    return;
+  } else {
+    topPad = window.scrollY + 100;
+    if (topPad >= window.outerHeight) {
+      return;
+    } else {
+      modal.style.top = topPad + "px";
+    }
+  }
 };
 
 let completePurchase = function (address, price, size) {
   window.location.href = `../../../../cart/complete/?item=${slug}&price=${price}&size=${size}&address=${address}`;
 };
-
-let buyNowBtn = document.createElement("a");
-buyNowBtn.onclick = completePurchase;
-buyNowBtn.classList.add("btn");
-buyNowBtn.classList.add("btn-primary");
-buyNowBtn.innerHTML = "Buy Now";
 
 let form = document.querySelector("form.buyForm");
 
@@ -90,7 +92,6 @@ function buyNow() {
   $(function () {
     $(container).load("../../../js/buyNow.html");
   });
-  form.appendChild(buyNowBtn);
   gsap.fromTo(
     wrapper,
     0.5,
