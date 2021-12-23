@@ -6,11 +6,6 @@ let wrapper = document.createElement("div"),
   topPad;
 
 jqsrc.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-// jqsrc.setAttribute(
-//   "integrity",
-//   "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-// );
-// jqsrc.setAttribute("crossorgin", "anonymous");
 jqsrc.id = "jq-for-buynow";
 meta.name = "theme-color";
 meta.setAttribute("content", "rgb(18,28,36)");
@@ -31,19 +26,27 @@ let mheader = document.createElement("h1");
 let mbody = document.createElement("div");
 mbody.classList.add("textgroup");
 mheader.innerHTML = "Buy Now";
-let form = document.createElement("form");
-// form.innerHTML =
-//   '<form><h3>Billing Address</h3><label for="fname">Full Name</label><input class="form-input" type="text" id="fname" name="firstname" placeholder="John M. Doe"><label for="adr">Address</label><input class="form-input" type="text" id="adr" name="address" placeholder="542 W. 15th Street"><label for="city">City</label><input class="form-input" type="text" id="city" name="city" placeholder="New York"><div class="input-group"><label for="state">State</label><input class="form-input" type="text" id="state" name="state" placeholder="NY"><label for="zip">Zip</label><input class="form-input" type="text" id="zip" name="zip" placeholder="10001"></div><h3>Payment</h3><label for="cname">Name on Card</label><input class="form-input" type="text" id="cname" name="cardname" placeholder="John More Doe"><label for="ccnum">Credit card number</label><input class="form-input" type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"><div class="input-group"><label for="expmonth">Exp Month</label><input class="form-input" type="text" id="expmonth" name="expmonth" placeholder="September"><label for="expyear">Exp Year</label><input type="text" id="expyear" name="expyear" placeholder="2077"><label for="cvv">CVV</label><input type="text" id="cvv" name="cvv" placeholder="352"></div> </form>';
 
 modal.appendChild(container);
-// container.appendChild(mheader);
-// container.appendChild(mbody);
-mbody.appendChild(form);
+container.appendChild(mheader);
+container.appendChild(mbody);
 
 let scroller = function () {
   topPad = window.scrollY + 100;
   modal.style.top = topPad + "px";
 };
+
+let completePurchase = function (address, price, size) {
+  window.location.href = `../../../../cart/complete/?item=${slug}&price=${price}&size=${size}&address=${address}`;
+};
+
+let buyNowBtn = document.createElement("a");
+buyNowBtn.onclick = completePurchase;
+buyNowBtn.classList.add("btn");
+buyNowBtn.classList.add("btn-primary");
+buyNowBtn.innerHTML = "Buy Now";
+
+let form = document.querySelector("form.buyNowForm");
 
 function closeBuy() {
   window.removeEventListener("scroll", scroller);
@@ -79,6 +82,7 @@ function setup() {
 window.onload = setup();
 
 function buyNow() {
+  scroller();
   body.appendChild(meta);
   body.appendChild(wrapper);
   body.appendChild(modal);
@@ -86,6 +90,7 @@ function buyNow() {
   $(function () {
     $(container).load("../../../js/buyNow.html");
   });
+  form.appendChild(buyNowBtn);
   gsap.fromTo(
     wrapper,
     0.5,
@@ -98,6 +103,5 @@ function buyNow() {
     { top: topPad + 50, opacity: 0, ease: "power2.out" },
     { top: topPad, opacity: 1 }
   );
+  window.addEventListener("scroll", scroller);
 }
-
-window.addEventListener("scroll", scroller);

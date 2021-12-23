@@ -903,6 +903,7 @@ hr {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0);
+  color: var(--tan);
   transition: 800ms ease background-color;
   opacity: 0;
   animation-fill-mode: forwards;
@@ -931,6 +932,7 @@ hr {
   margin: 5px;
   aspect-ratio: 1;
   display: block;
+  cursor: pointer;
 }
 .printSize #small {
   width: 3vw;
@@ -946,6 +948,7 @@ hr {
 }
 .printSize #options div.clicked {
   background-color: var(--color);
+  cursor: auto;
 }
 
 /* keyframes */
@@ -1013,7 +1016,7 @@ hr {
   z-index: 10;
 }
 .buyModal {
-  color: var(--color);
+  color: var(--tan);
   border: 5px solid var(--red);
   width: 80vw;
   height: 80vh;

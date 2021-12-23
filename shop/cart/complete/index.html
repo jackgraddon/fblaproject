@@ -5,18 +5,18 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Cart | Generated</title>
-    <link href="../../images/assets/logo/icon.png" rel="icon">
+    <title>Complete | Generated</title>
+    <link href="../../../images/assets/logo/icon.png" rel="icon">
     <meta content="Shop" name="og:title">
     <meta content="Generated" name="og:site_name">
-    <meta content="../../images/assets/promos/winter/ogimage.png" name="og:image">
+    <meta content="../../../images/assets/promos/winter/ogimage.png" name="og:image">
     <meta content="website" name="og:type">
     <meta content="https://generatedprints.com/" name="og:url">
     <meta content="en_US" name="og:locale">
 
     <!-- PWA -->
-    <link href="../../images/assets/logo/generated.png" rel="apple-touch-icon">
-    <link rel="manifest" href="../../manifest.json">
+    <link href="../../../images/assets/logo/generated.png" rel="apple-touch-icon">
+    <link rel="manifest" href="../../../manifest.json">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -27,69 +27,100 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!-- Personal CSS -->
-    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../../css/styles.css" rel="stylesheet">
+    <style>
+        @media print {
+            .noPrint {
+                display: none;
+            }
+
+            body {
+                color: black !important;
+                background-color: white !important;
+            }
+
+            #cart {
+                width: 80%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="nav">
-        <a onclick="linkClicked('../../')" id="homelinkM">
+    <div class="nav noPrint">
+        <a onclick="linkClicked('../../../')" id="homelinkM">
             <h1>//Generated</h1>
         </a>
         <div class="d-flex flex-row">
-            <a onclick="linkClicked('../../about/')" id="aboutlink" class="pageLink">
+            <a onclick="linkClicked('../../../about/')" id="aboutlink" class="pageLink">
                 <h5>About</h5>
             </a>
-            <a onclick="linkClicked('../../contact/')" id="contactlink" class="pageLink">
+            <a onclick="linkClicked('../../../contact/')" id="contactlink" class="pageLink">
                 <h5>Contact</h5>
             </a>
-            <a onclick="linkClicked('../../')" id="homelink">
+            <a onclick="linkClicked('../../../')" id="homelink">
                 <h1>//Generated</h1>
             </a>
-            <a onclick="linkClicked('../../socials/')" id="socialslink" class="pageLink">
+            <a onclick="linkClicked('../../../socials/')" id="socialslink" class="pageLink">
                 <h5>Socials</h5>
             </a>
-            <a onclick="linkClicked('../../shop/')" id="shoplink" class="pageLink">
+            <a onclick="linkClicked('../../../shop/')" id="shoplink" class="pageLink">
                 <h5>Shop</h5>
             </a>
         </div>
     </div>
-    <section id="empty" style="overflow: hidden">
-        <div class="fullpage" style="height: 75vh;">
-            <div class="textgroup">
-                <h2>Your Cart is Empty!</h2>
-                <p>Let's get it filled up!</p>
-                <a class="btn btn-primary" onclick="linkClicked('../browse/')">Shop Prints</a>
-            </div>
-        </div>
-
-        <a class="btn btn-primary" onclick="generateCart('test')">Generate Test Cart</a>
-    </section>
-    <section id="full" style="opacity: 0; display: none; margin-top: 10vh; min-height: 75vh;">
+    <section id="full" style="margin-top: 10vh; min-height: 75vh;">
         <div>
             <div class="textgroup">
-                <h2>Here's what you've got.</h2>
+                <h2>Thanks for your order!</h2>
+                <p class="noPrint">Your order is being processed.</p>
+                <p>Your order number is <span id="orderNum"></span></p>
                 <table id="cart">
                 </table>
-                <span style="margin-top: 5em;">
-                    <a onclick="localStorage.clear(); window.location.reload()" class="btn btn-primary">Clear Cart</a>
-                    <a class="btn btn-disabled">Checkout</a>
-                </span>
+                <script id="orderNumGenerator">
+                    const pageAccessedByReload = (
+                        (window.performance.navigation && window.performance.navigation.type === 1) ||
+                        window.performance
+                            .getEntriesByType('navigation')
+                            .map((nav) => nav.type)
+                            .includes('reload')
+                    );
+                    // console.log(pageAccessedByReload);
+                    let order = document.getElementById('orderNum');
+                    if (pageAccessedByReload) {
+                        orderNum = window.localStorage.getItem('orderNum');
+                        order.innerHTML = orderNum;
+                    } else {
+                        orderNum = Math.floor(Math.random() * 9999999)
+                        order.innerHTML = orderNum;
+                        window.localStorage.setItem('orderNum', orderNum)
+                    }
+                </script>
+                <p style="margin-top: 1em;">Your order will be shipped to:</p>
+                <p id="address"></p>
             </div>
         </div>
+        <a onclick="window.print();" class="btn btn-primary noPrint" style="margin-top: 2em;">
+            Print Me
+        </a>
+        <h5 style="margin-top: 10vh;">Disclaimer</h5>
+        <p>This website is a mock business, and you will not recieve any item ordered.</p>
+        <p>You were not charged if you entered your credit card information, as we have no way to process this data.</p>
     </section>
-    <div class="footer">
+    <div class="footer noPrint">
         <h1>//Generated</h1>
         <div class="links">
-            <a onclick="linkClicked('../../about/')" id="aboutlink">
+            <a onclick="linkClicked('../../../about/')" id="aboutlink">
                 <h5>About</h5>
             </a>
-            <a onclick="linkClicked('../../contact/')" id="contactlink">
+            <a onclick="linkClicked('../../../contact/')" id="contactlink">
                 <h5>Contact</h5>
             </a>
-            <a onclick="linkClicked('../../socials/')" id="socialslink">
+            <a onclick="linkClicked('../../../socials/')" id="socialslink">
                 <h5>Socials</h5>
             </a>
-            <a onclick="linkClicked('../../shop/')" id="shoplink">
+            <a onclick="linkClicked('../../../shop/')" id="shoplink">
                 <h5>Shop</h5>
             </a>
         </div>
@@ -142,7 +173,7 @@
     <!-- jsCookie -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <!-- Crypto JS -->
-    <script src="../../js/crypto-js.js"></script>
+    <script src="../../../js/crypto-js.js"></script>
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js"></script>
@@ -176,42 +207,64 @@
     </script>
     <!-- Load cart -->
     <script>
+        var url = new URL(window.location.href);
+        let itemD = url.searchParams.get('item');
+        let sizeD = url.searchParams.get('size');
+        let priceD = url.searchParams.get('price')
+        let address = url.searchParams.get('address');
+        document.getElementById('address').innerHTML = address;
         let data = JSON.parse(localStorage.getItem("cart")), emptyCart = { "cart": 0, "items": {} }, load = true;;
 
         console.log("Data", data);
-        if (data == null || JSON.stringify(data) === JSON.stringify(emptyCart)) {
-            data = emptyCart;
-            load = false;
-        }
         console.log("Cart", JSON.stringify(emptyCart), emptyCart);
         console.log("Data", JSON.stringify(data), data);
         localStorage.setItem("cart", JSON.stringify(data));
 
+        function toTitleCase(str) {
+            return str.toLowerCase().split(' ').map(function (word) {
+                return (word.charAt(0).toUpperCase() + word.slice(1));
+            }).join(' ');
+        }
+
+        if (itemD) {
+            let head = document.createElement('tr');
+            head.id = `cartHeader`;
+            document.getElementById('cart').appendChild(head);
+
+            let nameH = document.createElement('td')
+            nameH.innerHTML = 'Name';
+            nameH.setAttribute('colspan', '1');
+            let sizeH = document.createElement('td')
+            sizeH.innerHTML = 'Size';
+            sizeH.setAttribute('colspan', '1');
+            let priceH = document.createElement('td')
+            priceH.innerHTML = 'Price (USD)';
+            priceH.setAttribute('colspan', '1');
+
+            console.log(itemD);
+
+            let row = document.createElement('tr');
+            row.id = `row`;
+            document.getElementById('cart').appendChild(row);
+
+            let name = document.createElement('td')
+            name.innerHTML = toTitleCase(itemD);
+            let size = document.createElement('td')
+            size.innerHTML = sizeD;
+            let price = document.createElement('td')
+            price.innerHTML = priceD;
+
+            head.appendChild(nameH);
+            head.appendChild(sizeH);
+            head.appendChild(priceH);
+            row.appendChild(name);
+            row.appendChild(size);
+            row.appendChild(price);
+            load = false;
+        }
+
         let items = [];
         function generateCart(info) {
-            if (info == 'test') {
-                load = true;
-                info = {
-                    cart: 3,
-                    items: {
-                        1: {
-                            name: "Forest",
-                            size: "46in",
-                            price: 49.99
-                        },
-                        2: {
-                            name: "Animals",
-                            size: "46in",
-                            price: 49.99
-                        },
-                        3: {
-                            name: "Snow",
-                            size: "36in",
-                            price: 59.99
-                        }
-                    }
-                }
-            }
             if (load) {
                 for (var i in info.items) {
                     items.push([i, info.items[i].name, info.items[i].size, info.items[i].price]);
@@ -263,7 +316,7 @@
                     document.getElementById('empty').style.display = 'none';
                 }
             } else {
-                console.log('No cart to load, showing promos.')
+                console.log('Loaded cart from URL instead of storage')
             }
         }
         let loader = generateCart(data);
