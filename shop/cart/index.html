@@ -102,13 +102,13 @@
                         <span>
                             <label for="ccnum">Credit card number</label>
                             <input class="form-input" type="text" id="ccnum" name="cardnumber"
-                                placeholder="1111-2222-3333-4444">
+                                placeholder="1111222233334444">
                         </span>
                     </div>
                     <div class="input-group">
                         <span>
                             <label for="expmonth">Exp Month</label>
-                            <input class="form-input" type="text" id="expmonth" name="expmonth" placeholder="September">
+                            <input class="form-input" type="text" id="expmonth" name="expmonth" placeholder="08">
                         </span>
                         <span>
                             <label for="expyear">Exp Year</label>
@@ -127,9 +127,21 @@
                         let city = document.getElementById('city');
                         let state = document.getElementById('state');
                         let zip = document.getElementById('zip');
-                        let address = street.value + " " + city.value + ', ' + state.value + ' ' + zip.value;
+                        let cname = document.getElementById('cname');
+                        let ccnum = document.getElementById('ccnum');
+                        let expmonth = document.getElementById('expmonth');
+                        let expyear = document.getElementById('expyear');
+                        let cvv = document.getElementById('cvv');
 
-                        window.location.href = `./complete/?address=${address}`;
+                        if (street.value == '' || city.value == '' || state.value == '' || zip.value == '') {
+                            alert('Address filled out incorrectly, please check again.');
+                        } else if (cname.value == '' || (ccnum.value == '' || ccnum.value.length < 16) || (expmonth.value == '' || expmonth.value.length != 2) || (expyear.value == '' || expyear.value.length != 4) || (cvv.value == '' || cvv.value.length < 3)) {
+                            alert('Payment information filled out incorrectly, please check again.');
+                        } else {
+                            let address = street.value + " " + city.value + ', ' + state.value + ' ' + zip.value;
+                            window.location.href = `./complete/?address=${address}`;
+                        }
+
                     };
                 </script>
                 <span style="margin-top: 5em;">
@@ -273,6 +285,7 @@
                         }
                     }
                 }
+                localStorage.setItem('cart', JSON.stringify(info));
             }
             if (load) {
                 for (var i in info.items) {
