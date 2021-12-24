@@ -327,6 +327,31 @@ a.link:hover {
 }
 
 /* Footer */
+/* Winter Footer */
+img#tree1 {
+  position: absolute;
+  z-index: 5;
+  bottom: 4em;
+  left: 10%;
+  width: 35vh;
+  height: 48vh;
+}
+img#tree2 {
+  position: absolute;
+  z-index: 5;
+  bottom: 4em;
+  right: 5%;
+  width: 40vh;
+  height: 54vh;
+}
+@media screen and (max-width: 760px) {
+  img#tree1,
+  img#tree2 {
+    display: none;
+  }
+}
+
+/* Normal Footer */
 .footer {
   background-color: var(--color);
   height: fit-content;
@@ -383,7 +408,11 @@ div.fullpage {
   justify-content: center;
   align-items: center;
 }
-div.imgbg {
+.fullpage#land1 {
+  width: 85%;
+  margin: auto;
+}
+div.imgbg#land2 {
   width: 100vw;
   height: 80vh;
   background-image: url("../images/backgrounds/winter.gif");
@@ -392,6 +421,10 @@ div.imgbg {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.fullpage#land1 .textgroup p {
+  width: 60%;
 }
 
 @media screen and (max-width: 760px) {
@@ -404,6 +437,12 @@ div.imgbg {
   div.imgbg {
     height: fit-content;
     margin-bottom: 3em;
+  }
+  .fullpage#land1 {
+    padding: 0 1em;
+  }
+  .fullpage#land1 .textgroup p {
+    width: 100%;
   }
 }
 
