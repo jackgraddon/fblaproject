@@ -1,5 +1,5 @@
 /* Colors and Theme */
-/* @media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
   :root {
     --neutral: #efd6ac;
     --color: #c44900;
@@ -24,10 +24,10 @@
   --green: #183a37;
   --purple: #432534;
   --swiper-theme-color: var(--color);
-} */
+}
 
 /* Winter Themes */
-:root {
+/* :root {
   --neutral: #1d394a;
   --color: #ffe6cc;
 }
@@ -44,7 +44,7 @@
   --green: #ebf5ff;
   --purple: #8aa89b;
   --swiper-theme-color: var(--color);
-}
+} */
 
 /* Fonts */
 @font-face {
@@ -119,7 +119,7 @@ a.link {
   font-weight: normal;
   transition: 300ms;
 }
-/* @media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
   a:hover {
     text-decoration: none;
     color: var(--purple);
@@ -130,16 +130,15 @@ a.link {
     text-decoration: none;
     color: var(--red);
   }
-} */
+}
 
-/* Winter Theme */
 a:hover,
 a.link:hover {
   text-decoration: none;
   color: var(--purple);
   cursor: pointer;
 }
-/*  */
+
 .textgroup {
   width: 100%;
   display: flex;
@@ -300,7 +299,7 @@ a.link:hover {
   background-position: -185px;
   border-bottom: 5px var(--purple) solid !important;
 }
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   .nav .pageLink * {
     background: linear-gradient(
       60deg,
@@ -321,7 +320,7 @@ a.link:hover {
     background-position: 100%;
     border-bottom: 5px var(--red) solid !important;
   }
-} */
+}
 .nav .pageLink:hover * {
   background-position: 100%;
 }
