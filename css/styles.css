@@ -414,7 +414,7 @@ div.fullpage {
 div.imgbg#land2 {
   width: 100vw;
   height: 80vh;
-  background-image: url("../images/backgrounds/winter.gif");
+  background-image: url("../images/backgrounds/forest.gif");
   background-position: bottom;
   background-size: cover;
   display: flex;
