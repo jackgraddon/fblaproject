@@ -57,8 +57,8 @@
     <div class="fullwidth" style="margin-top: 10vh;">
         <div class="textgroup">
             <h1>Looking for a Print?</h1>
-            <p>You've come to the right place. Generated Prints uses AI to create unique, high quailty works of art
-                usingn <a onclick="linkClicked('../about/#vqgan')" class="link">VQGAN</a> and <a
+            <p>You've come to the right place. Generated Prints uses AI to create unique, high quality works of art
+                using <a onclick="linkClicked('../about/#vqgan')" class="link">VQGAN</a> and <a
                     onclick="linkClicked('../about/#clip')" class="link">CLIP</a>. <br>This method ensures that each
                 print that we sell is unique to our brand, and you won't be able to get these anywhere else. Ready to
                 buy one? <a href="#browse">Go take a look.</a></p>
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <div>
+    <div style="margin-bottom: 2em;">
         <p id="howToComputer">Use the arrow keys to switch cards</p>
         <p id="howToMobile">Swipe the cards to view more</p>
     </div>
@@ -148,7 +148,7 @@
         }
         setup();
         function startTimer() {
-            timeoutID = window.setTimeout(goInactive, 20000);
+            timeoutID = window.setTimeout(goInactive, 3000);
         }
         function resetTimer(e) {
             window.clearTimeout(timeoutID);

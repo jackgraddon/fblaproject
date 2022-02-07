@@ -71,69 +71,8 @@
     <div class="fullwidth">
         <div class="textgroup">
             <div class="printSize">
-                <p>Choose your size:</p>
-                <div id="options">
-                    <div id="small" class="clicked">
-                    </div>
-                    <div id="medium">
-                    </div>
-                    <div id="large">
-                    </div>
-                </div>
-                <p id="size">36in</p>
+                <p>This print is unavailable for purchase at this time.</p>
             </div>
-            <span>
-                <a class="btn btn-primary" onclick="javascript:buyNow()">Buy Now</a>
-                <a class="btn btn-primary" onclick="javascript:addToCart(this)">Add to Cart</a>
-            </span>
-            <script>
-                // Size Selection
-                let selected = document.getElementById('small');
-                let size = document.getElementById('size');
-                document.getElementById('small').addEventListener('click', function () {
-                    selected.classList.remove('clicked');
-                    this.classList.add('clicked');
-                    size.innerHTML = '36in';
-                    selected = this;
-                })
-                document.getElementById('medium').addEventListener('click', function () {
-                    selected.classList.remove('clicked');
-                    this.classList.add('clicked');
-                    size.innerHTML = '42in';
-                    selected = this;
-                })
-                document.getElementById('large').addEventListener('click', function () {
-                    selected.classList.remove('clicked');
-                    this.classList.add('clicked');
-                    size.innerHTML = '54in';
-                    selected = this;
-                })
-
-                // Adding to Cart
-                let cartInfo = JSON.parse(localStorage.getItem('cart'));
-                console.log(cartInfo);
-                if (cartInfo == null) {
-                    fetch("../../../../../cart.json")
-                        .then(response => {
-                            return response.json();
-                        })
-                        .then(data => cartInfo = data);
-                }
-                function addToCart(elem) {
-                    cartInfo.cart++;
-                    let i = cartInfo.cart;
-                    let item = {
-                        "name": document.getElementById('name').innerHTML,
-                        "size": size.innerHTML,
-                        "price": document.getElementById('price').innerHTML
-                    }
-                    cartInfo.items[i] = item;
-                    localStorage.setItem('cart', JSON.stringify(cartInfo));
-
-                    gsap.to(elem, { 'text': 'View Cart' })
-                    elem.onclick = function () { linkClicked('../../../../cart') };
-                }
-            </script>
         </div>
     </div>
 
