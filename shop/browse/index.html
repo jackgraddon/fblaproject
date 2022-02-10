@@ -80,9 +80,9 @@
     <!-- <section id="page" style="opacity: 0; display: none; margin-top: 10vh;"> -->
     <div style=" margin-top: 10vh;"">
         <div class=" textgroup">
-        <h2>Winter Prints are Here!</h2>
-        <p>Looking for something festive for the season? Go check out our brand new Winter Prints for 2021!</p>
-        <a class="btn btn-primary" onclick="linkClicked('./product/winter/')">Shop Winter</a>
+        <h2>Valentine's Day Prints are Here!</h2>
+        <p>Looking for something for your loved one? Go check out our brand new Valentine's 2022 prints!</p>
+        <a class="btn btn-primary" onclick="linkClicked('./product/valentine/')">Shop Valentine's Day</a>
     </div>
     <div class="fullwidth" style="margin: 10vh auto 10vh auto;">
         <div class="textgroup">
@@ -93,10 +93,11 @@
                     <label for="category" class="dropdownContainer">Choose Category</label>
                     <input type="checkbox" id="category" class="dropdownCheck" onclick="toggleDropdown('category')">
                     <ul class="dropdown" id="categoryDrop">
-                        <li onclick="linkClicked('./product/winter/')" class="limited">Winter</li>
-                        <li onclick="linkClicked('./product/autumn/')">Autumn</li>
+                        <li onclick="linkClicked('./product/valentines/')">Valentine's</li>
                         <li onclick="linkClicked('./product/abstract/')">Abstract</li>
                         <li onclick="linkClicked('./product/nature/')">Nature</li>
+                        <li onclick="linkClicked('./product/winter/')"><i>Winter</i></li>
+                        <li onclick="linkClicked('./product/autumn/')"><i>Autumn</i></li>
                     </ul>
                 </div>
             </form>
@@ -172,13 +173,13 @@
             }
         }
         window.addEventListener("load", function () {
-            // CREATE SORTABLE TABLE WITH GIVEN OBJECT
+            // CREATE TABLE WITH GIVEN OBJECT
             var items = {
-                Price: [59.99, 59.99, 59.99, 59.99, 49.99, 49.99, 49.99, 49.99],
-                Name: ["Snow", "Winter Wonderland", "Leaves", "Leaves II", "Forest", "Forest II", "Animals", "Nothing"],
-                Category: ["Winter", "Winter", "Autumn", "Autumn", "Nature", "Nature", "Nature", "Abstract"],
-                Image: ["seasonal/snow.png", "seasonal/winterwonderland.png", "seasonal/autumn.png", "seasonal/autumn2.png", "forest.png", "forest2.png", "animals.png", "nothing.png"],
-                ReleaseDate: ["December 2021", "December 2021", "August 2021", "August 2021", "July 2021", "July 2021", "July 2021", "July 2021"]
+                Price: [59.99, 59.99, 49.99, 49.99, 49.99, 49.99, 59.99, 59.99, 59.99, 59.99],
+                Name: ["Love", "Hearts", "Forest", "Forest II", "Animals", "Nothing", "Snow", "Winter Wonderland", "Leaves", "Leaves II"],
+                Category: ["Valentine's", "Valentine's", "Nature", "Nature", "Nature", "Abstract", "Winter", "Winter", "Autumn", "Autumn"],
+                Image: ["seasonal/love.png", "seasonal/hearts.png", "forest.png", "forest2.png", "animals.png", "nothing.png", "seasonal/snow.png", "seasonal/winterwonderland.png", "seasonal/autumn.png", "seasonal/autumn2.png"],
+                ReleaseDate: ["February 2022", "February 2022", "July 2021", "July 2021", "July 2021", "July 2021", "December 2021", "December 2021", "August 2021", "August 2021"]
             };
             createTable("hiddenTable", items, "sortable");
             let i = 1, row, j = 1;
