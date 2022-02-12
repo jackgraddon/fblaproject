@@ -204,7 +204,7 @@
                 let category = document.createElement('p');
                 let releaseDate = document.createElement('h6');
                 let buyBtn = document.createElement('a');
-                releaseDate.innerHTML = document.getElementById(`item${i}ReleaseDate`).innerHTML;
+                releaseDate.innerHTML = document.getElementById(`item${i}ReleaseDate`);
                 releaseDate.style.margin = 0;
                 releaseDate.style.fontSize = "10pt";
                 container.appendChild(releaseDate);
@@ -216,7 +216,7 @@
                 container.appendChild(title);
                 desc.innerHTML = document.getElementById(`item${i}Price`).innerHTML;
                 container.appendChild(desc);
-                let url = `./product/${document.getElementById(`item${i}Category`).innerHTML.toLowerCase().replace(" ", "")}/${document.getElementById(`item${i}Name`).innerHTML.toLowerCase().replace(" ", "")}/`;
+                let url = `./product/${document.getElementById(`item${i}Category`).innerHTML.toLowerCase().replace(" ", "").split("'")[0]}/${document.getElementById(`item${i}Name`).innerHTML.toLowerCase().replace(" ", "")}/`;
                 buyBtn.onclick = function clicked() { linkClicked(url) };
                 buyBtn.innerHTML = "Buy Now";
                 buyBtn.classList.add('btn', 'btn-primary')
