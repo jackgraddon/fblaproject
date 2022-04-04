@@ -13,7 +13,9 @@ You have permission to:
 
 Please be respectful of my requests.
 
-*This work is Copyright Jackson Graddon 2021*
+*This work is Copyright Jackson Graddon 2022*
+
+Updated 2022
 
 
 ---
