@@ -8,7 +8,7 @@ if (accessibility == "") {
 }
 
 // Create accessibility button and add it to the page
-var accessibilityButton = document.createElement("p");
+var accessibilityButton = document.createElement("div");
 accessibilityButton.id = "accessibility";
 accessibilityButton.innerHTML = '<i class="fa-solid fa-eye-low-vision"></i>';
 try {

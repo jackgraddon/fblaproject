@@ -95,8 +95,8 @@ body.accessibility.high-contrast * {
   color: #f0f465 !important;
   box-shadow: none !important;
 }
-p#accessibility {
-  position: absolute;
+div#accessibility {
+  position: fixed;
   top: calc(100vh - 4.5rem);
   right: 0rem;
   padding: 1rem;
