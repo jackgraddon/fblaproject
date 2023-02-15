@@ -10,7 +10,7 @@ if (accessibility == "") {
 // Create accessibility button and add it to the page
 var accessibilityButton = document.createElement("div");
 accessibilityButton.id = "accessibility";
-accessibilityButton.innerHTML = '<i class="fa-solid fa-eye-low-vision"></i>';
+accessibilityButton.innerHTML = '<i class="bi bi-universal-access-circle"></i>';
 try {
   //   body.appendChild(accessibilityButton);
   body.insertBefore(accessibilityButton, body.firstChild);
@@ -21,11 +21,11 @@ try {
 // Set the accessibility settings on page load
 document.addEventListener("DOMContentLoaded", function () {
   if (accessibility == "2") {
-    // Enable accesibility styles if the cookie is set to 2
+    // Enable accessibility styles if the cookie is set to 2
     body.classList.add("accessibility");
     body.classList.add("high-contrast");
   } else if (accessibility == "1") {
-    // Enable accesibility styles if the cookie is set to 1
+    // Enable accessibility styles if the cookie is set to 1
     body.classList.add("accessibility");
   } else {
     // Disable accessibility styles if the cookie is set to 0
@@ -36,24 +36,24 @@ document.addEventListener("DOMContentLoaded", function () {
 // Set the accessibility settings on click of the accessibility button
 document.querySelector("#accessibility").addEventListener("click", function () {
   if (accessibility == "0") {
-    // Enable accesibility styles if the cookie is set to 0, and set to 1
+    // Enable accessibility styles if the cookie is set to 0, and set to 1
     accessibility = "1";
     Cookies.set("accessibility", accessibility);
     body.classList.add("accessibility");
   } else if (accessibility == "1") {
-    // Enable high contrast accesibility styles if the cookie is set to 1, and set to 2
+    // Enable high contrast accessibility styles if the cookie is set to 1, and set to 2
     accessibility = "2";
     Cookies.set("accessibility", accessibility);
     body.classList.add("accessibility");
     body.classList.add("high-contrast");
   } else if (accessibility == "2") {
-    // Disable accesibility styles if the cookie is set to 2, and set to 0
+    // Disable accessibility styles if the cookie is set to 2, and set to 0
     accessibility = "0";
     Cookies.set("accessibility", accessibility);
     body.classList.remove("accessibility");
     body.classList.remove("high-contrast");
   } else {
-    // Disable accesibility styles if no accessibility value is set or if it is set to something else
+    // Disable accessibility styles if no accessibility value is set or if it is set to something else
     accessibility = "0";
     Cookies.set("accessibility", accessibility);
     body.classList.remove("accessibility");
